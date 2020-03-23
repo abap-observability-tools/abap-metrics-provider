@@ -1,0 +1,11 @@
+@startuml architecture_class
+interface metrics_collector{
+  metrics
+}
+
+class metrics_system
+class metrics_performance
+
+metrics_collector <|-- metrics_system
+metrics_collector <|-- metrics_performance
+@enduml
