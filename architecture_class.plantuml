@@ -1,11 +1,19 @@
 @startuml architecture_class
-interface metrics_collector{
-  metrics
+
+class zcl_amp_strategist{
+  + provide_metrics()
 }
 
-class metrics_system
-class metrics_performance
+class zcl_amp_metrics_system <<zif_amp_metrics_collector>>
+class zcl_amp_metrics_performance <<zif_amp_metrics_collector>>
 
-metrics_collector <|-- metrics_system
-metrics_collector <|-- metrics_performance
+interface zif_amp_metrics_collector{
+  get_metrics
+}
+
+zcl_amp_strategist o-- metrics_collector
+
+metrics_collector <|-- zcl_amp_metrics_system
+metrics_collector <|-- zcl_amp_metrics_performance
+
 @enduml
