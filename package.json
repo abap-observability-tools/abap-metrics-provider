@@ -1,0 +1,26 @@
+{
+  "name": "abap-metrics-provider",
+  "version": "0.0.1",
+  "description": "abap-metrics-provider",
+  "scripts": {
+    "test": "abaplint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohannesKonings/abap-metrics-provider.git"
+  },
+  "keywords": [
+    "abap",
+    "metrics",
+    "sap-netweaver"
+  ],
+  "author": "Johannes Konings",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JohannesKonings/abap-metrics-provider/issues"
+  },
+  "homepage": "https://github.com/JohannesKonings/abap-metrics-provider#readme",
+  "devDependencies": {
+    "@abaplint/cli": "^2.31.0"
+  }
+}
