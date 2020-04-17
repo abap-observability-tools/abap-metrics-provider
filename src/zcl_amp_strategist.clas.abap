@@ -5,6 +5,7 @@ CLASS zcl_amp_strategist DEFINITION
 
   PUBLIC SECTION.
 
+    "! calls all classes for metrics collection  
     METHODS provide_metrics.
 
   PROTECTED SECTION.

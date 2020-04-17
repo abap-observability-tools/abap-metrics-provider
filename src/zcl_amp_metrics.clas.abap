@@ -15,10 +15,10 @@ CLASS zcl_amp_metrics IMPLEMENTATION.
   METHOD if_http_extension~handle_request.
 
     SELECT COUNT( * )
-    INTO @DATA(number_of_shortdumps)
-    FROM snap
-    WHERE datum = @sy-datum
-    and   seqno = '000'.
+      INTO @DATA(number_of_shortdumps)
+      FROM snap
+      WHERE datum = @sy-datum
+      AND seqno = '000'.
 
     DATA(json) = |\{ "shortdumps": \{ "number_of_shortdumps" : { number_of_shortdumps }\} \}|.
 
