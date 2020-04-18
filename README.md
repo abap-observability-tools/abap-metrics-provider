@@ -1,6 +1,7 @@
 # abap-metrics-provider :construction: WIP
 
 [![Known Vulnerabilities](https://snyk.io/test/github/JohannesKonings/abap-metrics-provider/badge.svg?targetFile=package.json)](https://snyk.io/test/github/JohannesKonings/abap-metrics-provider?targetFile=package.json)
+![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/JohannesKonings/abap-metrics-provider/dev/@abaplint/cli)
 ![Run abaplint](https://github.com/JohannesKonings/abap-metrics-provider/workflows/Run%20abaplint/badge.svg)
 
 # architecture
