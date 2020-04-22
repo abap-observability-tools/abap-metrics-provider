@@ -6,9 +6,15 @@
 
 # architecture
 
-## classdiagramm
+## component diagramm
 
-![classdiagramm](out/architecture/architecture_class/architecture_class.png)
+![component diagramm](out/architecture/architecture_component/component_diagram.png)
+
+## class diagramm
+
+![class diagramm provider](out/architecture/architecture_class/provider.png)
+
+![class diagramm converter](out/architecture/architecture_class/converter.png)
 
 # local tests
 
