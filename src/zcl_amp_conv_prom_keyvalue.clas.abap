@@ -1,0 +1,17 @@
+CLASS zcl_amp_conv_prom_keyvalue DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES zif_amp_converter.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_amp_conv_prom_keyvalue IMPLEMENTATION.
+ENDCLASS.
