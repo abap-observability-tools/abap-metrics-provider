@@ -23,7 +23,8 @@ CLASS zcl_amp_metric_example IMPLEMENTATION.
         DATA(random_number_creator) = cl_abap_random_int=>create(
                                                          seed = cl_abap_random=>seed( )
                                                          min  = 1
-                                                         max  = 10 ).
+                                                         max  = 10
+                                                     ).
 
         DATA(url_path) = server->request->get_header_field( '~path' ).
 
