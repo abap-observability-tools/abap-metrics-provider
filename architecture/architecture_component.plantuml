@@ -1,14 +1,14 @@
 @startuml component_diagram
 
 Job - metricsProvider
-HTTP - SICF
+HTTP - metricsScraper
 metricsProvider --> metricsStore
-SICF --> metricsStore 
+metricsScraper --> metricsStore 
 package "metricsProvider" {
   [metrics collector] 
 }
 
-package "SICF" {
+package "metricsScraper" {
   [metrics converter]
 }
 
