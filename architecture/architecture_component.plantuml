@@ -4,6 +4,8 @@ Job - metricsProvider
 HTTP - metricsScraper
 metricsProvider --> metricsStore
 metricsScraper --> metricsStore 
+[customzing] --> metricsProvider
+[customzing] --> metricsScraper
 package "metricsProvider" {
   [metrics collector] 
 }
