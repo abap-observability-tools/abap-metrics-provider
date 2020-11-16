@@ -16,7 +16,7 @@ zcl_amp_strategist o-- metrics_collector
 
 metrics_collector <|-- zcl_amp_metrics_system
 metrics_collector <|-- zcl_amp_metrics_performance
-metrics_collector <|-- zcl_amp_metrics_p
+metrics_collector <|-- zcl_amp_metrics_
 
 @enduml
 
