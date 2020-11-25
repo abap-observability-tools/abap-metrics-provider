@@ -19,6 +19,21 @@
 
 ![class diagramm converter](out/architecture/architecture_class/converter.png)
 
+# documentation
+
+## customizing
+
+## compontent provider
+
+### modul collector
+
+## compontent scrapper
+
+### modul converter
+
+The converter get the scenario from the URL parameter `scenario`.
+The URL should look like `http://vhcalnplci:8000/amp/metrics?sap-client=001&scenario=test`
+
 # local tests
 
 https://github.com/JohannesKonings/docker-abap-metrics-provider-tester
