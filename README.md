@@ -36,7 +36,7 @@ The URL should look like `http://vhcalnplci:8000/amp/metrics?sap-client=001&scen
 
 # local tests
 
-https://github.com/JohannesKonings/docker-abap-metrics-provider-tester
+[local test folder](local-tests/)
 
 # based on
 https://github.com/pacroy/abap-prometheus
