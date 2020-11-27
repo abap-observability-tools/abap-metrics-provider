@@ -31,7 +31,9 @@ CLASS zcl_amp_scraper IMPLEMENTATION.
         name               = 'scenario'
     ).
 
-    DATA(cdata) = NEW zcl_amp_conv_http_json( )->zif_amp_converter~convert( metric_store ).
+    DATA(converter) = NEW zcl_amp_customizing_base( scenario = CONV #( scenario ) )->get_metric_converter( ).
+
+    DATA(cdata) = converter->convert( metric_store ).
 
     server->response->set_cdata( cdata ).
 
