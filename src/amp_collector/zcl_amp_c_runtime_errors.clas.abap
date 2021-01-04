@@ -1,4 +1,4 @@
-CLASS zcl_amp_metrics_system DEFINITION
+CLASS zcl_amp_c_runtime_errors DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -13,16 +13,16 @@ ENDCLASS.
 
 
 
-CLASS zcl_amp_metrics_system IMPLEMENTATION.
+CLASS zcl_amp_c_runtime_errors IMPLEMENTATION.
   METHOD zif_amp_collector~get_metrics.
 
     SELECT COUNT( * )
-    INTO @DATA(number_of_shortdumps)
+    INTO @DATA(number_of_runtime_errors)
     FROM snap
     WHERE datum = @sy-datum
     AND   seqno = '000'.
 
-    metrics = VALUE #( BASE metrics ( metric_key = 'shortdumps' metric_value = number_of_shortdumps ) ).
+    metrics = VALUE #( BASE metrics ( metric_key = 'runtime_errors' metric_value = number_of_runtime_errors ) ).
 
   ENDMETHOD.
 
