@@ -5,7 +5,7 @@ CLASS zcl_amp_metrics_performance DEFINITION
 
   PUBLIC SECTION.
 
-    INTERFACES zif_amp_metrics_collector.
+    INTERFACES zif_amp_collector.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -14,7 +14,7 @@ ENDCLASS.
 
 
 CLASS zcl_amp_metrics_performance IMPLEMENTATION.
-  METHOD zif_amp_metrics_collector~get_metrics.
+  METHOD zif_amp_collector~get_metrics.
 
     DATA(random_number_creator) = cl_abap_random_int=>create(
                                                      seed = cl_abap_random=>seed( )

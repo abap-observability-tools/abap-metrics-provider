@@ -1,4 +1,4 @@
-INTERFACE zif_amp_metrics_collector
+INTERFACE zif_amp_collector
   PUBLIC .
 
   TYPES: BEGIN OF metric,
