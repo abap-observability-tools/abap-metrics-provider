@@ -32,6 +32,7 @@ Selects all runtime errors from the table SNAP for the current Day.
 
     metrics = VALUE #( BASE metrics ( metric_key = 'runtime_errors' metric_value = number_of_runtime_errors ) )
 ```
+
 ## jobs (SM37)
 
 zcl_amp_c_jobs
