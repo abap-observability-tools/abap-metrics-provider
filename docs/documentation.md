@@ -17,7 +17,7 @@ The URL should look like `http://vhcalnplci:8000/amp/metrics?sap-client=001&scen
 
 The collectors classes are marked with a C e.g. zcl_amp_c_runtime_errors.
 
-## runtimte errors
+## runtimte errors (ST22)
 
 zcl_amp_c_runtime_errors
 
