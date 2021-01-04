@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOINTERF>
-    <CLSNAME>ZIF_AMP_METRICS_COLLECTOR</CLSNAME>
+    <CLSNAME>ZIF_AMP_COLLECTOR</CLSNAME>
     <LANGU>E</LANGU>
     <DESCRIPT>amp metrics collector</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>

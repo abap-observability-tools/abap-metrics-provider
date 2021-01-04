@@ -5,7 +5,7 @@ CLASS zcl_amp_metrics_system DEFINITION
 
   PUBLIC SECTION.
 
-    INTERFACES zif_amp_metrics_collector.
+    INTERFACES zif_amp_collector.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -14,7 +14,7 @@ ENDCLASS.
 
 
 CLASS zcl_amp_metrics_system IMPLEMENTATION.
-  METHOD zif_amp_metrics_collector~get_metrics.
+  METHOD zif_amp_collector~get_metrics.
 
     SELECT COUNT( * )
     INTO @DATA(number_of_shortdumps)
