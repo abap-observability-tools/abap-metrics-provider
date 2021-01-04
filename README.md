@@ -21,19 +21,7 @@
 
 # documentation
 
-## customizing
-
-## compontent provider
-
-### modul collector
-
-## compontent scrapper
-
-### modul converter
-
-The converter get the scenario from the URL parameter `scenario`.
-The URL should look like `http://vhcalnplci:8000/amp/metrics?sap-client=001&scenario=test`
-
+[documentation folder](docs/)
 # local tests
 
 [local test folder](local-tests/)
