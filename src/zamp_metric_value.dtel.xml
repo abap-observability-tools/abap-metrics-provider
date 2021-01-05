@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZAMP_METRIC_VALUE</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <HEADLEN>05</HEADLEN>
+    <SCRLEN1>05</SCRLEN1>
+    <SCRLEN2>05</SCRLEN2>
+    <SCRLEN3>05</SCRLEN3>
+    <DDTEXT>ZAMP_STORE Metric Value</DDTEXT>
+    <REPTEXT>Value</REPTEXT>
+    <SCRTEXT_S>Value</SCRTEXT_S>
+    <SCRTEXT_M>Value</SCRTEXT_M>
+    <SCRTEXT_L>Value</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <DATATYPE>INT8</DATATYPE>
+    <LENG>000019</LENG>
+    <OUTPUTLEN>000020</OUTPUTLEN>
+   </DD04V>
+  </asx:values>
+ </asx:abap>
+</abapGit>
