@@ -25,8 +25,6 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
 
     DATA(metric_collectors) = NEW zcl_amp_customizing_base( scenario )->get_metric_collectors( ).
 
-    GET TIME STAMP FIELD DATA(ts).
-
     LOOP AT metric_collectors ASSIGNING FIELD-SYMBOL(<metric_collector>).
 
       CREATE OBJECT metric_collector TYPE (<metric_collector>-metric_class).
@@ -38,6 +36,8 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
       ENDSELECT.
 
       collector_metrics = metric_collector->get_metrics( last_run ).
+
+      GET TIME STAMP FIELD DATA(ts).
 
       LOOP AT collector_metrics ASSIGNING FIELD-SYMBOL(<metric>).
         APPEND VALUE #( metric_scenario = scenario
