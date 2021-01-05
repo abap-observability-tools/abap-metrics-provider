@@ -31,7 +31,13 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
 
       CREATE OBJECT metric_collector TYPE (<metric_collector>-metric_class).
 
-      collector_metrics = metric_collector->get_metrics( ).
+      SELECT metric_last_run FROM zamp_store
+      WHERE zamp_store~metric_scenario = @scenario
+      AND zamp_store~metric_collector = @<metric_collector>-metric_class
+      INTO @DATA(last_run).
+      ENDSELECT.
+
+      collector_metrics = metric_collector->get_metrics( last_run ).
 
       LOOP AT collector_metrics ASSIGNING FIELD-SYMBOL(<metric>).
         APPEND VALUE #( metric_scenario = scenario

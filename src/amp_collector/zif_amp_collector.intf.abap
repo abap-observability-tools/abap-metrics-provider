@@ -8,6 +8,9 @@ INTERFACE zif_amp_collector
 
   TYPES metrics TYPE STANDARD TABLE OF metric WITH KEY metric_key.
 
-  METHODS get_metrics RETURNING VALUE(metrics) TYPE metrics.
+  METHODS get_metrics
+    IMPORTING
+        last_run type zamp_store-metric_last_run
+    RETURNING VALUE(metrics) TYPE metrics.
 
 ENDINTERFACE.
