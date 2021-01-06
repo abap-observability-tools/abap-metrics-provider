@@ -17,19 +17,17 @@ CLASS zcl_amp_scraper IMPLEMENTATION.
     DATA metric_store  TYPE STANDARD TABLE OF zamp_store.
     DATA url_parameteres  TYPE tihttpnvp.
 
+    "just to check the whole list of parameters in the debugger
+    server->request->get_form_fields( CHANGING
+                                        fields  =  url_parameteres ).
+
+    DATA(scenario) = server->request->get_form_field( name = 'scenario' ).
+    TRANSLATE scenario TO UPPER CASE.
+
     SELECT *
     FROM zamp_store
-    INTO TABLE @metric_store.
-
-    "just to check the whole list of parameters in the debugger
-    server->request->get_form_fields(
-      CHANGING
-        fields             =  url_parameteres
-    ).
-
-    DATA(scenario) = server->request->get_form_field(
-        name               = 'scenario'
-    ).
+    INTO TABLE @metric_store
+    WHERE metric_scenario = @scenario.
 
     DATA(converter) = NEW zcl_amp_customizing_base( scenario = CONV #( scenario ) )->get_metric_converter( ).
 

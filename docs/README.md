@@ -128,4 +128,3 @@ Select the workload of the system.
       ASSERT 1 = 2.
     ENDIF.
 ```
-
