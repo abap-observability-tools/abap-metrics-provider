@@ -14,7 +14,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
   "links": [],
   "panels": [
     {
@@ -93,7 +92,7 @@
             [
               {
                 "params": [
-                  "runtime_errors_runtime_errors"
+                  "NPL_001_runtime_errors_runtime_errors"
                 ],
                 "type": "field"
               },

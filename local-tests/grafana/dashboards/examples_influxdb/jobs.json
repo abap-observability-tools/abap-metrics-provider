@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 7,
   "links": [],
   "panels": [
     {
@@ -94,7 +93,7 @@
             [
               {
                 "params": [
-                  "jobs_finished_jobs_finished"
+                  "NPL_001_jobs_jobs_finished"
                 ],
                 "type": "field"
               },
