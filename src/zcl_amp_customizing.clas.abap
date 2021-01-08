@@ -14,7 +14,7 @@ CLASS zcl_amp_customizing DEFINITION PUBLIC ABSTRACT.
 
   PROTECTED SECTION.
 
-    DATA scenario TYPE zale_config-ale_scenario.
+    DATA scenario TYPE zamp_config_scen-scenario.
     DATA metric_collectors TYPE ty_metric_collectors.
     DATA metric_converter_class_name TYPE zamp_config_scen-converter_class.
 
