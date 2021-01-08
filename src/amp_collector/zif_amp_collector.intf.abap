@@ -10,9 +10,11 @@ INTERFACE zif_amp_collector
 
   METHODS get_metrics
     IMPORTING
-              last_run       TYPE zamp_store-metric_last_run
-              date_last_run  TYPE d
-              time_last_run  TYPE t
-    RETURNING VALUE(metrics) TYPE metrics.
+              last_run         TYPE zamp_store-metric_last_run
+              date_last_run    TYPE d
+              time_last_run    TYPE t
+              date_current_run TYPE d
+              time_current_run TYPE t
+    RETURNING VALUE(metrics)   TYPE metrics.
 
 ENDINTERFACE.

@@ -19,10 +19,13 @@ CLASS zcl_amp_strategist DEFINITION
 
     METHODS extract_date_time
       IMPORTING
-        timestamp TYPE zamp_store-metric_last_run
+        timestamp          TYPE zamp_store-metric_last_run
       EXPORTING
-        date      TYPE d
-        time      TYPE t.
+        date_last_run      TYPE d
+        time_last_run      TYPE t
+        date_current_run   TYPE d
+        time_current_run   TYPE t
+        current_time_stamp TYPE zamp_store-metric_last_run.
 
 ENDCLASS.
 
@@ -49,23 +52,25 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
         EXPORTING
           timestamp = last_run
         IMPORTING
-          date     = DATA(date)
-          time     = DATA(time)
+          date_last_run      = DATA(date_last_run)
+          time_last_run      = DATA(time_last_run)
+          date_current_run   = DATA(date_current_run)
+          time_current_run   = DATA(time_current_run)
+          current_time_stamp = DATA(current_time_stamp)
       ).
 
       collector_metrics = metric_collector->get_metrics( last_run = last_run
-                                                         date_last_run = date
-                                                         time_last_run = time ).
-
-
-      GET TIME STAMP FIELD DATA(ts).
+                                                         date_last_run = date_last_run
+                                                         time_last_run = time_last_run
+                                                         date_current_run = date_current_run
+                                                         time_current_run = time_current_run ).
 
       LOOP AT collector_metrics ASSIGNING FIELD-SYMBOL(<metric>).
         APPEND VALUE #( metric_scenario = scenario
                         metric_group = <metric_collector>-metric_group_name
                         metric_key = <metric>-metric_key
                         metric_value = <metric>-metric_value
-                        metric_last_run = ts ) TO metrics.
+                        metric_last_run = current_time_stamp ) TO metrics.
       ENDLOOP.
 
       APPEND LINES OF metrics TO metrics_total.
@@ -96,7 +101,12 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
         timezone = tz.
 
     CONVERT TIME STAMP timestamp TIME ZONE tz
-        INTO DATE date TIME time.
+        INTO DATE date_last_run TIME time_last_run.
+
+    GET TIME STAMP FIELD current_time_stamp.
+
+    CONVERT TIME STAMP current_time_stamp TIME ZONE tz
+        INTO DATE date_current_run TIME time_current_run.
 
   ENDMETHOD.
 

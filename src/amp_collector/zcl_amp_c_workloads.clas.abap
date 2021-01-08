@@ -22,23 +22,12 @@ CLASS zcl_amp_c_workloads IMPLEMENTATION.
     DATA response_time       TYPE p.
     DATA cpu_time            TYPE p.
 
-    DATA tz TYPE timezone.
-
-    CALL FUNCTION 'GET_SYSTEM_TIMEZONE'
-      IMPORTING
-        timezone = tz.
-
-    GET TIME STAMP FIELD DATA(timestamp_current).
-
-    CONVERT TIME STAMP timestamp_current TIME ZONE tz
-        INTO DATE DATA(date_current) TIME DATA(time_current).
-
     CALL FUNCTION 'SAPWL_STATREC_DIRECT_READ'
       EXPORTING
         read_start_date             = date_last_run
         read_start_time             = time_last_run
-        read_end_date               = date_current
-        read_end_time               = time_current
+        read_end_date               = date_current_run
+        read_end_time               = time_current_run
       IMPORTING
         records_read                = no_of_records
         normal_records              = normal_records
@@ -57,9 +46,9 @@ CLASS zcl_amp_c_workloads IMPLEMENTATION.
       ENDLOOP.
 
       metrics = VALUE #( BASE metrics
-                          ( metric_key = 'workload_no_of_records' metric_value = no_of_records )
-                          ( metric_key = 'workload_response_time' metric_value = response_time )
-                          ( metric_key = 'workload_cpu_time' metric_value = cpu_time ) ).
+                       ( metric_key = 'workload_no_of_records' metric_value = no_of_records )
+                       ( metric_key = 'workload_response_time' metric_value = response_time )
+                       ( metric_key = 'workload_cpu_time' metric_value = cpu_time ) ).
 
 
     ELSE.
