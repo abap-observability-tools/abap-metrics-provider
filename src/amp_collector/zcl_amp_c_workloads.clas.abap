@@ -28,9 +28,6 @@ CLASS zcl_amp_c_workloads IMPLEMENTATION.
       IMPORTING
         timezone = tz.
 
-    CONVERT TIME STAMP last_run TIME ZONE tz
-        INTO DATE DATA(date_last_run) TIME DATA(time_last_run).
-
     GET TIME STAMP FIELD DATA(timestamp_current).
 
     CONVERT TIME STAMP timestamp_current TIME ZONE tz
