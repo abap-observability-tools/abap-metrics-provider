@@ -11,6 +11,19 @@ CLASS zcl_amp_strategist DEFINITION
   PROTECTED SECTION.
   PRIVATE SECTION.
 
+    METHODS get_last_run
+      IMPORTING
+                scenario          TYPE zamp_scenario
+                metric_group_name TYPE zamp_store-metric_group
+      RETURNING VALUE(last_run)   TYPE zamp_store-metric_last_run.
+
+    METHODS extract_date_time
+      IMPORTING
+        timestamp TYPE zamp_store-metric_last_run
+      EXPORTING
+        date      TYPE d
+        time      TYPE t.
+
 ENDCLASS.
 
 
@@ -29,14 +42,21 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
 
       CREATE OBJECT metric_collector TYPE (<metric_collector>-metric_class).
 
-      SELECT metric_last_run
-      FROM zamp_store
-      WHERE zamp_store~metric_scenario = @scenario
-      AND zamp_store~metric_group = @<metric_collector>-metric_group_name
-      INTO @DATA(last_run) UP TO 1 ROWS.
-      ENDSELECT.
+      DATA(last_run) = me->get_last_run( scenario = scenario
+                                         metric_group_name = <metric_collector>-metric_group_name ).
 
-      collector_metrics = metric_collector->get_metrics( last_run ).
+      me->extract_date_time(
+        EXPORTING
+          timestamp = last_run
+        IMPORTING
+          date     = DATA(date)
+          time     = DATA(time)
+      ).
+
+      collector_metrics = metric_collector->get_metrics( last_run = last_run
+                                                         date_last_run = date
+                                                         time_last_run = time ).
+
 
       GET TIME STAMP FIELD DATA(ts).
 
@@ -53,6 +73,31 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
     ENDLOOP.
 
     MODIFY zamp_store FROM TABLE metrics_total.
+
+  ENDMETHOD.
+
+  METHOD get_last_run.
+
+    SELECT metric_last_run
+          FROM zamp_store
+          WHERE zamp_store~metric_scenario = @scenario
+          AND zamp_store~metric_group = @metric_group_name
+          INTO @last_run UP TO 1 ROWS.
+    ENDSELECT.
+
+  ENDMETHOD.
+
+  METHOD extract_date_time.
+
+    DATA tz TYPE timezone.
+
+    CALL FUNCTION 'GET_SYSTEM_TIMEZONE'
+      IMPORTING
+        timezone = tz.
+
+    CONVERT TIME STAMP timestamp TIME ZONE tz
+        INTO DATE date TIME time.
+
   ENDMETHOD.
 
 ENDCLASS.
