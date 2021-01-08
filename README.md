@@ -15,9 +15,9 @@
 
 ![class diagramm provider](out/architecture/architecture_class/provider.png)
 
-### converter
+### scraper
 
-![class diagramm converter](out/architecture/architecture_class/converter.png)
+![class diagramm scraper](out/architecture/architecture_class/scraper.png)
 
 # documentation
 
