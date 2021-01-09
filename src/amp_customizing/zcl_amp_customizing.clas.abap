@@ -1,10 +1,10 @@
 CLASS zcl_amp_customizing DEFINITION PUBLIC ABSTRACT.
   PUBLIC SECTION.
 
-    TYPES ty_metric_collectors TYPE STANDARD TABLE OF zamp_config_prov WITH KEY metric_group_name.
+    TYPES ty_metric_collectors TYPE STANDARD TABLE OF zamp_config_prov WITH KEY metric_group.
 
     METHODS constructor
-      IMPORTING scenario TYPE zamp_config_scen-scenario.
+      IMPORTING scenario TYPE zamp_config_scen-metric_scenario.
 
     METHODS get_metric_collectors ABSTRACT
       RETURNING VALUE(metric_collectors) TYPE ty_metric_collectors.
@@ -14,7 +14,7 @@ CLASS zcl_amp_customizing DEFINITION PUBLIC ABSTRACT.
 
   PROTECTED SECTION.
 
-    DATA scenario TYPE zamp_config_scen-scenario.
+    DATA scenario TYPE zamp_config_scen-metric_scenario.
     DATA metric_collectors TYPE ty_metric_collectors.
     DATA metric_converter_class_name TYPE zamp_config_scen-converter_class.
 
@@ -30,7 +30,7 @@ CLASS zcl_amp_customizing IMPLEMENTATION.
     SELECT SINGLE converter_class
     FROM zamp_config_scen
     INTO @me->metric_converter_class_name
-    WHERE scenario = @me->scenario.
+    WHERE metric_scenario = @me->scenario.
     IF sy-subrc <> 0.
       ASSERT 1 = 2.
     ENDIF.
@@ -38,7 +38,7 @@ CLASS zcl_amp_customizing IMPLEMENTATION.
     SELECT *
     FROM zamp_config_prov
     INTO TABLE @metric_collectors
-    WHERE scenario = @me->scenario.
+    WHERE metric_scenario = @me->scenario.
     IF sy-subrc <> 0.
       ASSERT 1 = 2.
     ENDIF.

@@ -9,7 +9,7 @@
     <SCRLEN1>05</SCRLEN1>
     <SCRLEN2>05</SCRLEN2>
     <SCRLEN3>05</SCRLEN3>
-    <DDTEXT>ZAMP_STORE Metric Value</DDTEXT>
+    <DDTEXT>amp metric value</DDTEXT>
     <REPTEXT>Value</REPTEXT>
     <SCRTEXT_S>Value</SCRTEXT_S>
     <SCRTEXT_M>Value</SCRTEXT_M>

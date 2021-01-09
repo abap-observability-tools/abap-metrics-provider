@@ -6,15 +6,15 @@ CLASS zcl_amp_strategist DEFINITION
   PUBLIC SECTION.
 
     METHODS provide_metrics
-      IMPORTING scenario TYPE zamp_config_scen-scenario.
+      IMPORTING scenario TYPE zamp_config_scen-metric_scenario.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
 
     METHODS get_last_run
       IMPORTING
-                scenario          TYPE zamp_scenario
-                metric_group_name TYPE zamp_store-metric_group
+                scenario          TYPE zamp_store-metric_scenario
+                metric_group      TYPE zamp_store-metric_group
       RETURNING VALUE(last_run)   TYPE zamp_store-metric_last_run.
 
     METHODS extract_date_time
@@ -46,7 +46,7 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
       CREATE OBJECT metric_collector TYPE (<metric_collector>-metric_class).
 
       DATA(last_run) = me->get_last_run( scenario = scenario
-                                         metric_group_name = <metric_collector>-metric_group_name ).
+                                         metric_group = <metric_collector>-metric_group ).
 
       me->extract_date_time(
         EXPORTING
@@ -67,7 +67,7 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
 
       LOOP AT collector_metrics ASSIGNING FIELD-SYMBOL(<metric>).
         APPEND VALUE #( metric_scenario = scenario
-                        metric_group = <metric_collector>-metric_group_name
+                        metric_group = <metric_collector>-metric_group
                         metric_key = <metric>-metric_key
                         metric_value = <metric>-metric_value
                         metric_last_run = current_time_stamp ) TO metrics.
@@ -86,7 +86,7 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
     SELECT metric_last_run
           FROM zamp_store
           WHERE zamp_store~metric_scenario = @scenario
-          AND zamp_store~metric_group = @metric_group_name
+          AND zamp_store~metric_group = @metric_group
           INTO @last_run UP TO 1 ROWS.
     ENDSELECT.
 
