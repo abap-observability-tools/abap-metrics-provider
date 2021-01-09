@@ -29,7 +29,8 @@ CLASS zcl_amp_conv_http_json IMPLEMENTATION.
 
     LOOP AT metric_store_groups ASSIGNING FIELD-SYMBOL(<metric_store_group>).
 
-      converted_metrics = converted_metrics && |"{ sy-sysid }_{ sy-mandt }_{ <metric_store_group>-metric_group }" : \{|.
+      converted_metrics = converted_metrics &&
+                          |"{ sy-sysid }_{ sy-mandt }_{ <metric_store_group>-metric_scenario }_{ <metric_store_group>-metric_group }" : \{|.
 
       LOOP AT metric_store ASSIGNING FIELD-SYMBOL(<metric>) WHERE metric_group = <metric_store_group>-metric_group.
 
