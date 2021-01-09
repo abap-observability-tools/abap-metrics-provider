@@ -2,6 +2,12 @@
 
 ## customizing
 
+transaction ZAMP_CONFIG
+
+![customizing example provider](./img/customizing_example_scenario.png)
+
+![ustomizing example provider](./img/customizing_example_provider.png)
+
 ## compontent provider
 
 ### modul collector
