@@ -5,7 +5,7 @@
 *&---------------------------------------------------------------------*
 REPORT zamp_metrics_provider.
 
-PARAMETERS scenario TYPE zamp_config_scen-scenario.
+PARAMETERS scenario TYPE zamp_config_scen-metric_scenario.
 
 START-OF-SELECTION.
 

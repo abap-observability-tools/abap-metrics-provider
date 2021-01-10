@@ -1,6 +1,6 @@
 *---------------------------------------------------------------------*
 *    program for:   VIEWFRAME_ZAMPV_CONFIG_PRO
-*   generation date: 20.11.2020 at 19:11:09
+*   generation date: 09.01.2021 at 16:42:54
 *   view maintenance generator version: #001407#
 *---------------------------------------------------------------------*
 FUNCTION VIEWFRAME_ZAMPV_CONFIG_PRO    .

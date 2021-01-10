@@ -9,7 +9,7 @@
     <SCRLEN1>08</SCRLEN1>
     <SCRLEN2>08</SCRLEN2>
     <SCRLEN3>08</SCRLEN3>
-    <DDTEXT>ZAMP_STORE Metric last run</DDTEXT>
+    <DDTEXT>amp metric last run</DDTEXT>
     <REPTEXT>last run</REPTEXT>
     <SCRTEXT_S>last run</SCRTEXT_S>
     <SCRTEXT_M>last run</SCRTEXT_M>
