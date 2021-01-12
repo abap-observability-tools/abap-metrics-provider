@@ -134,3 +134,11 @@ Select the workload of the system.
       ASSERT 1 = 2.
     ENDIF.
 ```
+
+## SQL monitor data (SQLM)
+
+zcl_amp_c_sql_monitor
+
+Selects the sum of total DB time for the top five statements in the last hour.
+
+[ABAP class](../src/zamp_collector/zcl_amp_c_sql_monitor.clas.abap)
