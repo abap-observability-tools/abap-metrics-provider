@@ -22,7 +22,7 @@ CLASS zcl_amp_c_runtime_errors IMPLEMENTATION.
     WHERE datum = @sy-datum
     AND   seqno = '000'.
 
-    metrics = VALUE #( BASE metrics ( metric_key = 'runtime_errors' metric_value = number_of_runtime_errors ) ).
+    metrics = VALUE #( BASE metrics ( metric_key = 'number' metric_value = number_of_runtime_errors ) ).
 
   ENDMETHOD.
 
