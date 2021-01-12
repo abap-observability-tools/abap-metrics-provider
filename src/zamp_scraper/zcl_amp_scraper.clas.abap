@@ -22,7 +22,6 @@ CLASS zcl_amp_scraper IMPLEMENTATION.
                                         fields  =  url_parameteres ).
 
     DATA(scenario) = server->request->get_form_field( name = 'scenario' ).
-    TRANSLATE scenario TO UPPER CASE.
 
     SELECT *
     FROM zamp_store
