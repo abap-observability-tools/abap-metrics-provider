@@ -46,9 +46,9 @@ CLASS zcl_amp_c_workloads IMPLEMENTATION.
       ENDLOOP.
 
       metrics = VALUE #( BASE metrics
-                       ( metric_key = 'workload_no_of_records' metric_value = no_of_records )
-                       ( metric_key = 'workload_response_time' metric_value = response_time )
-                       ( metric_key = 'workload_cpu_time' metric_value = cpu_time ) ).
+                       ( metric_key = 'no_of_records' metric_value = no_of_records )
+                       ( metric_key = 'response_time' metric_value = response_time )
+                       ( metric_key = 'cpu_time' metric_value = cpu_time ) ).
 
 
     ELSE.
