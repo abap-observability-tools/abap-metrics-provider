@@ -5,7 +5,7 @@
    <VSEOCLASS>
     <CLSNAME>ZCL_AMP_CONV_PROM_KEYVALUE</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>amp converter telegraf http json</DESCRIPT>
+    <DESCRIPT>amp converter prometheus key value</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
