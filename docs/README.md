@@ -46,3 +46,9 @@ Select the workload of the system.
 [zcl_amp_c_sql_monitor](../src/zamp_collector/zcl_amp_c_sql_monitor.clas.abap)
 
 Selects the sum of total DB time for the top five statements in the last hour.
+
+## transactional RFCs (SM58)
+
+[zcl_amp_c_transactional_rfcs](../src/zamp_collector/zcl_amp_c_transactional_rfcs.clas.abap)
+
+Selects the transactional RFCs for the current Day and create a metric for each status.
