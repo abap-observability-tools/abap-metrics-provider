@@ -20,28 +20,17 @@ CLASS zcl_amp_c_transactional_rfcs IMPLEMENTATION.
 
     SELECT
     COUNT(*) AS count,
-    status AS status
-    FROM v_op
-    INTO TABLE @DATA(jobs)
-    WHERE strtdate = @sy-datum
-    GROUP BY status.
+    arfcstate AS status
+    FROM arfcsstate
+    INTO TABLE @DATA(rfcs)
+    WHERE arfcdatum = @date_current_run
+    GROUP BY arfcstate.
 
-    LOOP AT jobs ASSIGNING FIELD-SYMBOL(<job>).
+    LOOP AT rfcs ASSIGNING FIELD-SYMBOL(<rfc>).
 
-      "status from include LBTCHDEF
-      status = SWITCH #( <job>-status
-                          WHEN 'R' THEN 'running'
-                          WHEN 'Y' THEN 'ready'
-                          WHEN 'P' THEN 'scheduled'
-                          WHEN 'P' THEN 'intercepted'
-                          WHEN 'S' THEN 'released'
-                          WHEN 'A' THEN 'aborted'
-                          WHEN 'F' THEN 'finished'
-                          WHEN 'Z' THEN 'put_active'
-                          WHEN 'X' THEN 'unknown_state'
-                          ELSE 'no status found' ).
+      status = <rfc>-status.
 
-      metrics = VALUE #( BASE metrics ( metric_key = status metric_value = <job>-count ) ).
+      metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = status metric_value = <rfc>-count ) ).
 
     ENDLOOP.
 

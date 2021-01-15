@@ -41,7 +41,7 @@ CLASS zcl_amp_c_jobs IMPLEMENTATION.
                           WHEN 'X' THEN 'unknown_state'
                           ELSE 'no status found' ).
 
-      metrics = VALUE #( BASE metrics ( metric_key = status metric_value = <job>-count ) ).
+      metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = status metric_value = <job>-count ) ).
 
     ENDLOOP.
 
