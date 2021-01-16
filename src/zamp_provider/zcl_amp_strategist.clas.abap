@@ -11,11 +11,13 @@ CLASS zcl_amp_strategist DEFINITION
   PROTECTED SECTION.
   PRIVATE SECTION.
 
+    TYPES ty_stored_metrics TYPE STANDARD TABLE OF zamp_store WITH KEY metric_scenario metric_group metric_key.
+
     METHODS get_last_run
       IMPORTING
-                scenario          TYPE zamp_store-metric_scenario
-                metric_group      TYPE zamp_store-metric_group
-      RETURNING VALUE(last_run)   TYPE zamp_store-metric_last_run.
+                scenario                TYPE zamp_store-metric_scenario
+                metric_group            TYPE zamp_store-metric_group
+      RETURNING VALUE(last_run_metrics) TYPE ty_stored_metrics.
 
     METHODS extract_date_time
       IMPORTING
@@ -34,10 +36,11 @@ ENDCLASS.
 CLASS zcl_amp_strategist IMPLEMENTATION.
   METHOD provide_metrics.
 
-    DATA collector_metrics TYPE zif_amp_collector=>metrics.
-    DATA metrics           TYPE STANDARD TABLE OF zamp_store.
-    DATA metrics_total     LIKE metrics.
-    DATA metric_collector  TYPE REF TO zif_amp_collector.
+    DATA collector_metrics  TYPE zif_amp_collector=>metrics.
+    DATA metrics            TYPE STANDARD TABLE OF zamp_store.
+    DATA metrics_total      LIKE metrics.
+    DATA metric_collector   TYPE REF TO zif_amp_collector.
+    DATA timestamp_last_run TYPE zamp_metric_last_run .
 
     DATA(metric_collectors) = NEW zcl_amp_customizing_base( scenario )->get_metric_collectors( ).
 
@@ -45,12 +48,18 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
 
       CREATE OBJECT metric_collector TYPE (<metric_collector>-metric_class).
 
-      DATA(last_run) = me->get_last_run( scenario = scenario
-                                         metric_group = <metric_collector>-metric_group ).
+      DATA(metrics_last_run) = me->get_last_run( scenario = scenario
+                                                 metric_group = <metric_collector>-metric_group ).
+
+      TRY.
+          timestamp_last_run = metrics_last_run[ 1 ]-metric_last_run.
+        CATCH cx_sy_itab_line_not_found.
+          CLEAR timestamp_last_run.
+      ENDTRY.
 
       me->extract_date_time(
         EXPORTING
-          timestamp = last_run
+          timestamp = timestamp_last_run
         IMPORTING
           date_last_run      = DATA(date_last_run)
           time_last_run      = DATA(time_last_run)
@@ -59,9 +68,12 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
           current_time_stamp = DATA(current_time_stamp)
       ).
 
-      collector_metrics = metric_collector->get_metrics( last_run = last_run
+      collector_metrics = CORRESPONDING #( metrics_last_run ).
+
+      collector_metrics = metric_collector->get_metrics( last_run = timestamp_last_run
                                                          date_last_run = date_last_run
                                                          time_last_run = time_last_run
+                                                         metrics_last_run = collector_metrics
                                                          date_current_run = date_current_run
                                                          time_current_run = time_current_run ).
 
@@ -83,12 +95,11 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
 
   METHOD get_last_run.
 
-    SELECT metric_last_run
-          FROM zamp_store
-          WHERE zamp_store~metric_scenario = @scenario
-          AND zamp_store~metric_group = @metric_group
-          INTO @last_run UP TO 1 ROWS.
-    ENDSELECT.
+    SELECT *
+    FROM zamp_store
+    WHERE zamp_store~metric_scenario = @scenario
+    AND zamp_store~metric_group = @metric_group
+    INTO TABLE @last_run_metrics.
 
   ENDMETHOD.
 

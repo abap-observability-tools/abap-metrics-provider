@@ -26,7 +26,7 @@ CLASS zcl_amp_c_sql_monitor IMPLEMENTATION.
     DATA(records) = sqlm->get_records( upto = 5 ).
     DATA(totaldbtime) = REDUCE i( INIT sum = 0 FOR record IN records NEXT sum = sum + record-rtsum ).
 
-    metrics = VALUE #( BASE metrics ( metric_key = 'totaldbtime' metric_value = totaldbtime ) ).
+    metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = 'totaldbtime' metric_value = totaldbtime ) ).
 
   ENDMETHOD.
 
