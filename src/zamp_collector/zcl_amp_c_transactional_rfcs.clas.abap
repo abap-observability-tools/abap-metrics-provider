@@ -30,7 +30,7 @@ CLASS zcl_amp_c_transactional_rfcs IMPLEMENTATION.
 
       status = <rfc>-status.
 
-      metrics = VALUE #( BASE metrics ( metric_key = status metric_value = <rfc>-count ) ).
+      metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = status metric_value = <rfc>-count ) ).
 
     ENDLOOP.
 
