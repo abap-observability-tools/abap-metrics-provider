@@ -1,6 +1,11 @@
 # docker-abap-metrics-provider-tester
 
-For testing metrics from a sap-netweaver in a setup with InfluxDB, Telegraf and Grafana.
+For testing metrics from a sap-netweaver in a setup with InfluxDB/Telegraf or Prometheus and Grafana.
+
+## start 
+
+docker-compose -f docker-compose-influxdb.yml up
+docker-compose -f docker-compose-prometheus.yml up
 
 ## influxdb utils
 
