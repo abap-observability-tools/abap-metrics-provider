@@ -48,5 +48,8 @@ CLASS zcl_amp_conv_http_json IMPLEMENTATION.
 
     converted_metrics = converted_metrics && |\}|.
 
+
+    content_type = 'application/json'.
+
   ENDMETHOD.
 ENDCLASS.

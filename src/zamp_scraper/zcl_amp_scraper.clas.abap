@@ -14,8 +14,9 @@ ENDCLASS.
 CLASS zcl_amp_scraper IMPLEMENTATION.
   METHOD if_http_extension~handle_request.
 
-    DATA metric_store  TYPE STANDARD TABLE OF zamp_store.
-    DATA url_parameteres  TYPE tihttpnvp.
+    DATA metric_store       TYPE STANDARD TABLE OF zamp_store.
+    DATA url_parameteres    TYPE tihttpnvp.
+    DATA content_type       TYPE string.
 
     "just to check the whole list of parameters in the debugger
     server->request->get_form_fields( CHANGING
@@ -30,9 +31,14 @@ CLASS zcl_amp_scraper IMPLEMENTATION.
 
     DATA(converter) = NEW zcl_amp_customizing_base( scenario = CONV #( scenario ) )->get_metric_converter( ).
 
-    DATA(cdata) = converter->convert( metric_store ).
+
+    DATA(cdata) = converter->convert( EXPORTING
+                                        metric_store = metric_store
+                                      IMPORTING
+                                        content_type = content_type ).
 
     server->response->set_cdata( cdata ).
+    server->response->set_content_type( content_type ).
 
   ENDMETHOD.
 

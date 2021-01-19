@@ -25,6 +25,8 @@ CLASS zcl_amp_conv_prom_keyvalue IMPLEMENTATION.
 
     ENDLOOP.
 
+    content_type = 'text/plain'.
+
   ENDMETHOD.
 
 ENDCLASS.
