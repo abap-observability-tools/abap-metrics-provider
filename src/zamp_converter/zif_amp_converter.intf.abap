@@ -6,6 +6,8 @@ PUBLIC .
   METHODS convert
     IMPORTING
               metric_store             TYPE metric_store
+    EXPORTING
+              content_type             TYPE string
     RETURNING VALUE(converted_metrics) TYPE string.
 
 ENDINTERFACE.
