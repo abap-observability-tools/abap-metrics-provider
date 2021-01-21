@@ -17,13 +17,7 @@ CLASS zcl_amp_c_jobs IMPLEMENTATION.
 
     DATA status TYPE string.
 
-    "init status
-    zcl_amp_collector_utils=>initialize_metrics(
-      EXPORTING
-        metrics_last_run    = metrics_last_run
-      CHANGING
-        metrics_current_run = metrics_current_run
-    ).
+    metrics_current_run = zcl_amp_collector_utils=>initialize_metrics( metrics_last_run = metrics_last_run ).
 
     SELECT
     COUNT(*) AS count,

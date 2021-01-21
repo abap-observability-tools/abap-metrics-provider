@@ -6,8 +6,8 @@ CLASS zcl_amp_collector_utils DEFINITION
   PUBLIC SECTION.
 
     CLASS-METHODS initialize_metrics
-      IMPORTING metrics_last_run    TYPE zif_amp_collector=>metrics
-      CHANGING  metrics_current_run TYPE zif_amp_collector=>metrics.
+      IMPORTING metrics_last_run           TYPE zif_amp_collector=>metrics
+      RETURNING VALUE(metrics_current_run) TYPE zif_amp_collector=>metrics.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
