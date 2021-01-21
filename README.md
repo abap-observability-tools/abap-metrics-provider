@@ -1,11 +1,11 @@
-# abap-metrics-provider :construction: WIP
+# abap-metrics-provider
 
-[![Known Vulnerabilities](https://snyk.io/test/github/Goala/abap-metrics-provider/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Goala/abap-metrics-provider?targetFile=package.json)
-![Run abaplint](https://github.com/Goala/abap-metrics-provider/workflows/Run%20abaplint/badge.svg)
+[![Known Vulnerabilities](https://snyk.io/test/github/abap-observability-tools/abap-metrics-provider/badge.svg?targetFile=package.json)](https://snyk.io/test/github/abap-observability-tools/abap-metrics-provider?targetFile=package.json)
+![Run abaplint](https://github.com/abap-observability-tools/abap-metrics-provider/workflows/Run%20abaplint/badge.svg)
 
 # compatibility
 
-[statement compatibility](https://abaplint.app/stats/Goala/abap-metrics-provider/statement_compatibility)
+[statement compatibility](https://abaplint.app/stats/abap-observability-tools/abap-metrics-provider/statement_compatibility)
 
 # architecture
 
