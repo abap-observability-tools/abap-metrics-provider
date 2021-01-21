@@ -10,17 +10,6 @@ CLASS zcl_amp_c_jobs DEFINITION
   PROTECTED SECTION.
   PRIVATE SECTION.
 
-    CONSTANTS: r  TYPE string VALUE 'running',
-               y  TYPE string VALUE 'ready',
-               p  TYPE string VALUE 'scheduled',
-               pp TYPE string VALUE 'intercepted',
-               s  TYPE string VALUE 'released',
-               a  TYPE string VALUE 'aborted',
-               f  TYPE string VALUE 'finished',
-               z  TYPE string VALUE 'put_active',
-               x  TYPE string VALUE 'unknown_state',
-               o  TYPE string VALUE 'no status found'.
-
     METHODS initialize_metrics
       IMPORTING metrics_last_run    TYPE zif_amp_collector=>metrics
       CHANGING  metrics_current_run TYPE zif_amp_collector=>metrics.
@@ -53,16 +42,16 @@ CLASS zcl_amp_c_jobs IMPLEMENTATION.
 
       "status from include LBTCHDEF
       status = SWITCH #( <job>-status
-                          WHEN 'R' THEN r
-                          WHEN 'Y' THEN y
-                          WHEN 'P' THEN p
-                          WHEN 'P' THEN pp
-                          WHEN 'S' THEN s
-                          WHEN 'A' THEN a
-                          WHEN 'F' THEN f
-                          WHEN 'Z' THEN z
-                          WHEN 'X' THEN x
-                          ELSE o ).
+                          WHEN 'R' THEN 'running'
+                          WHEN 'Y' THEN 'ready'
+                          WHEN 'P' THEN 'scheduled'
+                          WHEN 'P' THEN 'intercepted'
+                          WHEN 'S' THEN 'released'
+                          WHEN 'A' THEN 'aborted'
+                          WHEN 'F' THEN 'finished'
+                          WHEN 'Z' THEN 'put_active'
+                          WHEN 'X' THEN 'unknown_state'
+                          ELSE 'no status found' ).
 
       metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = status metric_value = <job>-count ) ).
 
