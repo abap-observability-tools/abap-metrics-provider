@@ -19,7 +19,7 @@ CLASS zcl_amp_c_runtime_errors IMPLEMENTATION.
     SELECT COUNT( * )
     INTO @DATA(number_of_runtime_errors)
     FROM snap
-    WHERE datum = @sy-datum
+    WHERE datum = @date_current_run
     AND   seqno = '000'.
 
     metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = 'number' metric_value = number_of_runtime_errors ) ).

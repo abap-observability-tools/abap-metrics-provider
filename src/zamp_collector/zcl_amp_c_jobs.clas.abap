@@ -24,7 +24,7 @@ CLASS zcl_amp_c_jobs IMPLEMENTATION.
     status AS status
     FROM v_op
     INTO TABLE @DATA(jobs)
-    WHERE strtdate = @sy-datum
+    WHERE strtdate = @date_current_run
     GROUP BY status.
 
     LOOP AT jobs ASSIGNING FIELD-SYMBOL(<job>).

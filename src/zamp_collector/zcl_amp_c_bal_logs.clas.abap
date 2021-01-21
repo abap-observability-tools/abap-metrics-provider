@@ -24,7 +24,7 @@ CLASS zcl_amp_c_bal_logs IMPLEMENTATION.
     subobject AS subobject
     FROM balhdr
     INTO TABLE @DATA(bal_logs)
-    WHERE aldate = @sy-datum
+    WHERE aldate = @date_current_run
     GROUP BY object, subobject.
 
 
