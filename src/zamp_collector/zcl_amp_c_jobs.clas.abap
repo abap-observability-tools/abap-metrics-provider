@@ -9,11 +9,6 @@ CLASS zcl_amp_c_jobs DEFINITION
 
   PROTECTED SECTION.
   PRIVATE SECTION.
-
-    METHODS initialize_metrics
-      IMPORTING metrics_last_run    TYPE zif_amp_collector=>metrics
-      CHANGING  metrics_current_run TYPE zif_amp_collector=>metrics.
-
 ENDCLASS.
 
 
@@ -23,7 +18,7 @@ CLASS zcl_amp_c_jobs IMPLEMENTATION.
     DATA status TYPE string.
 
     "init status
-    me->initialize_metrics(
+    zcl_amp_collector_utils=>initialize_metrics(
       EXPORTING
         metrics_last_run    = metrics_last_run
       CHANGING
@@ -55,14 +50,6 @@ CLASS zcl_amp_c_jobs IMPLEMENTATION.
 
       metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = status metric_value = <job>-count ) ).
 
-    ENDLOOP.
-
-  ENDMETHOD.
-
-  METHOD initialize_metrics.
-
-    LOOP AT metrics_last_run ASSIGNING FIELD-SYMBOL(<previous_metric>).
-      metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = <previous_metric>-metric_key metric_value = 0 ) ).
     ENDLOOP.
 
   ENDMETHOD.
