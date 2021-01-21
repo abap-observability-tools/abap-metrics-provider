@@ -22,7 +22,8 @@ CLASS zcl_amp_c_jobs DEFINITION
                o  TYPE string VALUE 'no status found'.
 
     METHODS initialize_metrics
-      CHANGING metrics_current_run TYPE zif_amp_collector=>metrics.
+      IMPORTING metrics_last_run    TYPE zif_amp_collector=>metrics
+      CHANGING  metrics_current_run TYPE zif_amp_collector=>metrics.
 
 ENDCLASS.
 
@@ -34,6 +35,8 @@ CLASS zcl_amp_c_jobs IMPLEMENTATION.
 
     "init status
     me->initialize_metrics(
+      EXPORTING
+        metrics_last_run    = metrics_last_run
       CHANGING
         metrics_current_run = metrics_current_run
     ).
@@ -69,16 +72,10 @@ CLASS zcl_amp_c_jobs IMPLEMENTATION.
 
   METHOD initialize_metrics.
 
-    metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = r  metric_value = 0 )
-                                                            ( metric_key = y  metric_value = 0 )
-                                                            ( metric_key = p  metric_value = 0 )
-                                                            ( metric_key = pp metric_value = 0 )
-                                                            ( metric_key = s  metric_value = 0 )
-                                                            ( metric_key = a  metric_value = 0 )
-                                                            ( metric_key = f  metric_value = 0 )
-                                                            ( metric_key = z  metric_value = 0 )
-                                                            ( metric_key = x  metric_value = 0 )
-                                                            ( metric_key = o  metric_value = 0 ) ).
+    LOOP AT metrics_last_run ASSIGNING FIELD-SYMBOL(<previous_metric>).
+      metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = <previous_metric>-metric_key metric_value = 0 ) ).
+    ENDLOOP.
+
   ENDMETHOD.
 
 ENDCLASS.
