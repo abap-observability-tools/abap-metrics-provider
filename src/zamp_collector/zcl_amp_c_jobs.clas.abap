@@ -48,7 +48,8 @@ CLASS zcl_amp_c_jobs IMPLEMENTATION.
                           WHEN 'X' THEN 'unknown_state'
                           ELSE 'no status found' ).
 
-      metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = status metric_value = <job>-count ) ).
+      DATA(metric) = VALUE zif_amp_collector=>metric( metric_key = status metric_value  = <job>-count ).
+      COLLECT metric INTO metrics_current_run.
 
     ENDLOOP.
 
