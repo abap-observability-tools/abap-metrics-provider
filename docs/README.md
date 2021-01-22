@@ -52,3 +52,9 @@ Selects the sum of total DB time for the top five statements in the last hour.
 [zcl_amp_c_transactional_rfcs](../src/zamp_collector/zcl_amp_c_transactional_rfcs.clas.abap)
 
 Selects the transactional RFCs for the current Day and create a metric for each status.
+
+## transport states (STMS)
+
+[zcl_amp_c_transport_states](../src/zamp_collector/zcl_amp_c_transport_states.clas.abap)
+
+Selects the transport states for the current Day and create a metric for command and return code.
