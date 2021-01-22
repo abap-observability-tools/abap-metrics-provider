@@ -7,19 +7,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JohannesKonings/abap-metrics-provider.git"
+    "url": "git+https://github.com/abap-observability-tools/abap-metrics-provider.git"
   },
   "keywords": [
     "abap",
     "metrics",
     "sap-netweaver"
   ],
-  "author": "Johannes Konings",
+  "author": "abap-observability-tools",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JohannesKonings/abap-metrics-provider/issues"
+    "url": "https://github.com/abap-observability-tools/abap-metrics-provider/issues"
   },
-  "homepage": "https://github.com/JohannesKonings/abap-metrics-provider#readme",
+  "homepage": "https://github.com/abap-observability-tools/abap-metrics-provider#readme",
   "devDependencies": {
     "@abaplint/cli": "^2.32.1"
   }
