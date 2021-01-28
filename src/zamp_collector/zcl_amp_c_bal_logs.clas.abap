@@ -80,6 +80,8 @@ CLASS zcl_amp_c_bal_logs IMPLEMENTATION.
         COLLECT metric INTO metric_log_types.
       ENDLOOP.
 
+      CLEAR messages.
+
     ENDLOOP.
   ENDMETHOD.
 
