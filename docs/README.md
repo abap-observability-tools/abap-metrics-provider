@@ -59,8 +59,9 @@ Selects the transactional RFCs for the current Day and create a metric for each 
 
 Selects the transport states for the current Day and create a metric for command and return code.
 
-## transport states (BAL)
+## Business Application Log (BAL)
 
 [zcl_amp_c_bal_logs](../src/zamp_collector/zcl_amp_c_bal_logs.clas.abap)
 
-Counts all logs for the current day and groups them.
+Counts all logs for the current day and groups by Object and Subobject. 
+Also provides the number of different message types per Bal Object.
