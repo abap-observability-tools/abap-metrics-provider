@@ -86,6 +86,7 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
       ENDLOOP.
 
       APPEND LINES OF metrics TO metrics_total.
+      CLEAR metrics.
 
     ENDLOOP.
 
