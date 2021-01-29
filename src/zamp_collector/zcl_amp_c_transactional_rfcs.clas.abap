@@ -18,6 +18,8 @@ CLASS zcl_amp_c_transactional_rfcs IMPLEMENTATION.
 
     DATA status TYPE string.
 
+    metrics_current_run = zcl_amp_collector_utils=>initialize_metrics( metrics_last_run = metrics_last_run ).
+
     SELECT
     COUNT(*) AS count,
     arfcstate AS status
@@ -30,7 +32,8 @@ CLASS zcl_amp_c_transactional_rfcs IMPLEMENTATION.
 
       status = <rfc>-status.
 
-      metrics_current_run = VALUE #( BASE metrics_current_run ( metric_key = status metric_value = <rfc>-count ) ).
+      DATA(metric) = VALUE zif_amp_collector=>metric( metric_key = status metric_value = <rfc>-count ).
+      COLLECT metric INTO metrics_current_run.
 
     ENDLOOP.
 
