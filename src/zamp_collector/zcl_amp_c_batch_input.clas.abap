@@ -56,9 +56,11 @@ CLASS zcl_amp_c_batch_input IMPLEMENTATION.
 
   METHOD map_batch_state.
     type = SWITCH #( state
+                     WHEN 'R' THEN 'running'
+                     WHEN 'C' THEN 'creating'
                      WHEN 'E' THEN 'error'
                      WHEN 'F' THEN 'finished'
-                     WHEN '' THEN 'created'
+                     WHEN '' THEN 'unprocessed'
                      ELSE state ).
   ENDMETHOD.
 
