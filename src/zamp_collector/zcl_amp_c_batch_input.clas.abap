@@ -41,7 +41,7 @@ CLASS zcl_amp_c_batch_input IMPLEMENTATION.
     qstate AS state
     FROM apqi
     WHERE ( datatyp = 'BDC' OR datatyp = 'BDCE' OR datatyp = 'RODC' )
-    GROUP BY groupid, progid, qstate, datatyp
+    GROUP BY groupid, progid, qstate
     INTO TABLE @batch_inputs.
 
     LOOP AT batch_inputs ASSIGNING FIELD-SYMBOL(<batch>).
