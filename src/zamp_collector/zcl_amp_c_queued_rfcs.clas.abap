@@ -33,7 +33,7 @@ CLASS zcl_amp_c_queued_rfcs IMPLEMENTATION.
 
     LOOP AT outbound_rfcs ASSIGNING FIELD-SYMBOL(<outbound_rfc>).
 
-      name = |{ <outbound_rfc>-qname }_{ <outbound_rfc>-dest }_{ <outbound_rfc>-status }|.
+      name = |outbound_{ <outbound_rfc>-qname }_{ <outbound_rfc>-dest }_{ <outbound_rfc>-status }|.
 
       DATA(outbound_metric) = VALUE zif_amp_collector=>metric( metric_key = name metric_value = <outbound_rfc>-count ).
       COLLECT outbound_metric INTO metrics_current_run.
@@ -53,7 +53,7 @@ CLASS zcl_amp_c_queued_rfcs IMPLEMENTATION.
 
     LOOP AT inbound_rfcs ASSIGNING FIELD-SYMBOL(<inbound_rfc>).
 
-      name = |{ <inbound_rfc>-qname }_{ <inbound_rfc>-dest }_{ <inbound_rfc>-status }|.
+      name = |inbound_{ <inbound_rfc>-qname }_{ <inbound_rfc>-dest }_{ <inbound_rfc>-status }|.
 
       DATA(inbound_metric) = VALUE zif_amp_collector=>metric( metric_key = name metric_value = <inbound_rfc>-count ).
       COLLECT inbound_metric INTO metrics_current_run.
