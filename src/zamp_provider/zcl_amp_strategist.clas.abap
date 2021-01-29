@@ -40,7 +40,7 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
     DATA metrics            TYPE STANDARD TABLE OF zamp_store.
     DATA metrics_total      LIKE metrics.
     DATA metric_collector   TYPE REF TO zif_amp_collector.
-    DATA timestamp_last_run TYPE zamp_metric_last_run .
+    DATA timestamp_last_run TYPE zamp_metric_last_run.
 
     DATA(metric_collectors) = NEW zcl_amp_customizing_base( scenario )->get_metric_collectors( ).
 
@@ -65,8 +65,7 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
           time_last_run      = DATA(time_last_run)
           date_current_run   = DATA(date_current_run)
           time_current_run   = DATA(time_current_run)
-          current_time_stamp = DATA(current_time_stamp)
-      ).
+          current_time_stamp = DATA(current_time_stamp) ).
 
       collector_metrics = CORRESPONDING #( metrics_last_run ).
 
@@ -86,6 +85,7 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
       ENDLOOP.
 
       APPEND LINES OF metrics TO metrics_total.
+      CLEAR metrics.
 
     ENDLOOP.
 
@@ -96,10 +96,10 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
   METHOD get_last_run.
 
     SELECT *
-    FROM zamp_store
-    WHERE zamp_store~metric_scenario = @scenario
-    AND zamp_store~metric_group = @metric_group
-    INTO TABLE @last_run_metrics.
+      FROM zamp_store
+      WHERE zamp_store~metric_scenario = @scenario
+      AND zamp_store~metric_group = @metric_group
+      INTO TABLE @last_run_metrics.
 
   ENDMETHOD.
 

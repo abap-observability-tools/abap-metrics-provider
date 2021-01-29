@@ -15,6 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -35,7 +36,7 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 16,
-        "w": 24,
+        "w": 18,
         "x": 0,
         "y": 0
       },
@@ -49,12 +50,14 @@
         "min": true,
         "rightSide": true,
         "show": true,
-        "total": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
         "values": true
       },
       "lines": true,
       "linewidth": 1,
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
@@ -69,7 +72,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "jobs finished",
+          "alias": "",
           "groupBy": [
             {
               "params": [
@@ -87,6 +90,8 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(/NPL_001_example-influxdb_jobs_/) FROM \"http\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -146,6 +151,95 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^http\\.mean$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.6",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "http",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"NPL_001_example-influxdb_jobs_finished\") FROM \"http\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "NPL_001_example-influxdb_jobs_finished"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "finished jobs",
+      "type": "stat"
     }
   ],
   "schemaVersion": 26,
@@ -155,12 +249,12 @@
     "list": []
   },
   "time": {
-    "from": "now/d",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "jobs",
   "uid": "HTSLb5aGk",
-  "version": 1
+  "version": 4
 }

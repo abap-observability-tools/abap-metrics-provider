@@ -3,14 +3,13 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_AMP_CONV_HTTP_JSON</CLSNAME>
+    <CLSNAME>ZCL_AMP_C_QUEUED_RFCS</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>amp converter telegraf http json</DESCRIPT>
+    <DESCRIPT>amp collector queued RFCs (SMQ1/SMQ2)</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
-    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
    </VSEOCLASS>
   </asx:values>
  </asx:abap>
