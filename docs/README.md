@@ -65,3 +65,9 @@ Selects the transport states for the current Day and create a metric for command
 
 Counts all logs for the current day and groups by Object and Subobject. 
 Also provides the number of different message types per Bal Object.
+
+## Batch Input Jobs (SM35)
+
+[zcl_amp_c_batch_input](../src/zamp_collector/zcl_amp_c_batch_input.clas.abap)
+
+Collect count of batch sessions for the current day.
