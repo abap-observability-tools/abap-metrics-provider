@@ -5,8 +5,7 @@ CLASS zcl_amp_conv_http_json DEFINITION
 
   PUBLIC SECTION.
 
-    INTERFACES zif_amp_converter.
-
+    INTERFACES zif_amp_converter .
   PROTECTED SECTION.
   PRIVATE SECTION.
 ENDCLASS.
@@ -14,6 +13,7 @@ ENDCLASS.
 
 
 CLASS zcl_amp_conv_http_json IMPLEMENTATION.
+
 
   METHOD zif_amp_converter~convert.
 
@@ -34,7 +34,11 @@ CLASS zcl_amp_conv_http_json IMPLEMENTATION.
 
       LOOP AT metric_store ASSIGNING FIELD-SYMBOL(<metric>) WHERE metric_group = <metric_store_group>-metric_group.
 
-        converted_metrics = converted_metrics && |"{ <metric>-metric_key }" : { <metric>-metric_value },|.
+        DATA(metric_key) = <metric>-metric_key.
+
+        REPLACE ALL OCCURRENCES OF REGEX `(["\\\/])` IN metric_key WITH `\\$0`.
+
+        converted_metrics = converted_metrics && |"{ metric_key }" : { <metric>-metric_value },|.
 
       ENDLOOP.
 
@@ -43,8 +47,9 @@ CLASS zcl_amp_conv_http_json IMPLEMENTATION.
       converted_metrics = converted_metrics && |\},|.
 
     ENDLOOP.
-
-    converted_metrics = substring( val = converted_metrics off = 0 len = strlen( converted_metrics ) - 1 ).
+    IF sy-subrc = 0.
+      converted_metrics = substring( val = converted_metrics off = 0 len = strlen( converted_metrics ) - 1 ).
+    ENDIF.
 
     converted_metrics = converted_metrics && |\}|.
 
