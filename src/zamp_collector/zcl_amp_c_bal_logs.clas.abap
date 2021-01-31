@@ -38,13 +38,13 @@ CLASS zcl_amp_c_bal_logs IMPLEMENTATION.
     metrics_current_run = zcl_amp_collector_utils=>initialize_metrics( metrics_last_run = metrics_last_run ).
 
     SELECT
-    COUNT(*) AS count,
-    object AS object,
-    subobject AS subobject
-    FROM balhdr
-    INTO TABLE @bal_logs
-    WHERE aldate = @date_current_run
-    GROUP BY object, subobject.
+      COUNT(*) AS count,
+      object AS object,
+      subobject AS subobject
+      FROM balhdr
+      INTO TABLE @bal_logs
+      WHERE aldate = @date_current_run
+      GROUP BY object, subobject.
 
 
     LOOP AT bal_logs ASSIGNING FIELD-SYMBOL(<log>).
