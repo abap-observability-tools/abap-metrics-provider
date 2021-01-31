@@ -53,6 +53,12 @@ Selects the sum of total DB time for the top five statements in the last hour.
 
 Selects the transactional RFCs for the current Day and create a metric for each status.
 
+## queued RFCs (SMQ1/SMQ2)
+
+[zcl_amp_c_queued_rfcs](../src/zamp_collector/zcl_amp_c_queued_rfcs.clas.abap)
+
+Selects the queued RFCs (inbound and outbound) for the current Day and create a metric for each status.
+
 ## transport states (STMS)
 
 [zcl_amp_c_transport_states](../src/zamp_collector/zcl_amp_c_transport_states.clas.abap)
@@ -71,3 +77,9 @@ Also provides the number of different message types per Bal Object.
 [zcl_amp_c_batch_input](../src/zamp_collector/zcl_amp_c_batch_input.clas.abap)
 
 Collect count of batch sessions for the current day.
+
+## Batch Input Jobs (SM50/SM51)
+
+[zcl_amp_c_work_processes](../src/zamp_collector/zcl_amp_c_work_processes.clas.abap)
+
+Collect count of all work process types of all servers
