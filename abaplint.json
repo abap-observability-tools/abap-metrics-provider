@@ -95,16 +95,6 @@
       "exclude": [],
       "reason": ""
     },
-    "class_attribute_names": {
-      "exclude": [],
-      "reason": "",
-      "patternKind": "required",
-      "ignoreNames": [],
-      "ignorePatterns": [],
-      "ignoreExceptions": true,
-      "statics": "^G._.+$",
-      "instance": "^M._.+$"
-    },
     "cloud_types": {
       "exclude": [],
       "reason": ""
@@ -266,16 +256,6 @@
       "exclude": [],
       "reason": ""
     },
-    "local_variable_names": {
-      "exclude": [],
-      "reason": "",
-      "patternKind": "required",
-      "ignoreNames": [],
-      "ignorePatterns": [],
-      "expectedData": "\\w",
-      "expectedConstant": "^LC_.+$",
-      "expectedFS": "^<L._.+>$"
-    },
     "main_file_contents": {
       "exclude": [],
       "reason": ""
@@ -389,11 +369,6 @@
         "LT",
         "LE"
       ]
-    },
-    "prefix_is_current_class": {
-      "exclude": [],
-      "reason": "",
-      "omitMeInstanceCalls": true
     },
     "release_idoc": {
       "exclude": [],
