@@ -14,6 +14,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
+  "id": 3,
   "links": [],
   "panels": [
     {
@@ -48,12 +49,12 @@
         "min": true,
         "rightSide": true,
         "show": true,
-        "total": true,
+        "total": false,
         "values": true
       },
       "lines": true,
       "linewidth": 1,
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
@@ -86,13 +87,15 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"NPL_001_example-influxdb_runtime_errors_number\") FROM \"http\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "NPL_001_runtime_errors_runtime_errors"
+                  "NPL_001_example-influxdb_runtime_errors_number"
                 ],
                 "type": "field"
               },
@@ -154,12 +157,12 @@
     "list": []
   },
   "time": {
-    "from": "now/d",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "runtime errors",
   "uid": "_o22b5aGk",
-  "version": 1
+  "version": 4
 }
