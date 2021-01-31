@@ -19,15 +19,14 @@ CLASS zcl_amp_scraper IMPLEMENTATION.
     DATA content_type       TYPE string.
 
     "just to check the whole list of parameters in the debugger
-    server->request->get_form_fields( CHANGING
-                                        fields  =  url_parameteres ).
+    server->request->get_form_fields( CHANGING fields  = url_parameteres ).
 
     DATA(scenario) = server->request->get_form_field( name = 'scenario' ).
 
     SELECT *
-    FROM zamp_store
-    INTO TABLE @metric_store
-    WHERE metric_scenario = @scenario.
+      FROM zamp_store
+      INTO TABLE @metric_store
+      WHERE metric_scenario = @scenario.
 
     DATA(converter) = NEW zcl_amp_customizing_base( scenario = CONV #( scenario ) )->get_metric_converter( ).
 
