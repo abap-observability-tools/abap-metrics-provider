@@ -12,6 +12,10 @@ transaction ZAMP_CONFIG
 
 ### modul collector
 
+A collector is a class with the interface [zif_amp_collector](../src/zamp_collector/zif_amp_collector.intf.abap).
+
+This classes can be assigned to a scenario.
+
 ## compontent scrapper
 
 ### modul converter
