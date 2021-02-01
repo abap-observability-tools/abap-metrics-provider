@@ -35,23 +35,23 @@ CLASS zcl_amp_c_batch_input IMPLEMENTATION.
     metrics_current_run = zcl_amp_collector_utils=>initialize_metrics( metrics_last_run = metrics_last_run ).
 
     SELECT
-    COUNT(*) AS count,
-    groupid AS groupid,
-    progid AS progid,
-    qstate AS state
-    FROM apqi
-    WHERE ( datatyp = 'BDC' OR datatyp = 'BDCE' OR datatyp = 'RODC' )
-    GROUP BY groupid, progid, qstate
-    INTO TABLE @batch_inputs.
+      COUNT(*) AS count,
+      groupid AS groupid,
+      progid AS progid,
+      qstate AS state
+      FROM apqi
+      WHERE ( datatyp = 'BDC' OR datatyp = 'BDCE' OR datatyp = 'RODC' )
+      GROUP BY groupid, progid, qstate
+      INTO TABLE @batch_inputs.
 
     SELECT
-    COUNT(*) AS count,
-    groupid AS groupid,
-    progid AS progid
-    FROM apqi
-    WHERE ( datatyp = 'BDC' OR datatyp = 'BDCE' OR datatyp = 'RODC' )
-    GROUP BY groupid, progid
-    INTO TABLE @DATA(batch_inputs_condensed).
+      COUNT(*) AS count,
+      groupid AS groupid,
+      progid AS progid
+      FROM apqi
+      WHERE ( datatyp = 'BDC' OR datatyp = 'BDCE' OR datatyp = 'RODC' )
+      GROUP BY groupid, progid
+      INTO TABLE @DATA(batch_inputs_condensed).
 
     LOOP AT batch_inputs ASSIGNING FIELD-SYMBOL(<batch>).
 
