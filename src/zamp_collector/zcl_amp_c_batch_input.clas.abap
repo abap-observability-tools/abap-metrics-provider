@@ -88,3 +88,4 @@ CLASS zcl_amp_c_batch_input IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.
+
