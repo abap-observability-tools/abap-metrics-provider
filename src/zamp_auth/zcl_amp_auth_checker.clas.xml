@@ -11,6 +11,26 @@
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_AMP_AUTH_CHECKER</CLSNAME>
+     <CMPNAME>IS_DELETING_ALLOWED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>authority check deleting metrics</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_AMP_AUTH_CHECKER</CLSNAME>
+     <CMPNAME>IS_PROVIDING_ALLOWED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>authority check providing metrics</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_AMP_AUTH_CHECKER</CLSNAME>
+     <CMPNAME>IS_SCRAPING_ALLOWED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>authority check scraping metrics</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
   </asx:values>
  </asx:abap>
 </abapGit>
