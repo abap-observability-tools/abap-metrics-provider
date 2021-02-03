@@ -44,32 +44,17 @@ CLASS zcl_amp_c_batch_input IMPLEMENTATION.
       GROUP BY groupid, progid, qstate
       INTO TABLE @batch_inputs.
 
-    SELECT
-      COUNT(*) AS count,
-      groupid AS groupid,
-      progid AS progid
-      FROM apqi
-      WHERE ( datatyp = 'BDC' OR datatyp = 'BDCE' OR datatyp = 'RODC' )
-      GROUP BY groupid, progid
-      INTO TABLE @DATA(batch_inputs_condensed).
-
     LOOP AT batch_inputs ASSIGNING FIELD-SYMBOL(<batch>).
 
       DATA(metric_key) = |{ <batch>-groupid }_{ <batch>-progid }_{ me->map_batch_state( state = <batch>-state ) }|.
-
       DATA(metric) = VALUE zif_amp_collector=>metric( metric_key = metric_key
                                                       metric_value = <batch>-count ).
 
       COLLECT metric INTO metrics_current_run.
 
-    ENDLOOP.
-
-    LOOP AT batch_inputs_condensed ASSIGNING FIELD-SYMBOL(<batch_con>).
-
-      metric_key = |{ <batch_con>-groupid }_{ <batch_con>-progid }|.
-
-      metric = VALUE zif_amp_collector=>metric( metric_key   = metric_key
-                                                metric_value = <batch_con>-count ).
+      metric_key = |{ <batch>-groupid }_{ <batch>-progid }|.
+      metric = VALUE zif_amp_collector=>metric( metric_key = metric_key
+                                                metric_value = <batch>-count ).
 
       COLLECT metric INTO metrics_current_run.
 
