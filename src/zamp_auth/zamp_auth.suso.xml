@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SUSO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOBJ>
+    <OBJCT>ZAMP_AUTH</OBJCT>
+    <FIEL1>ZAMP_ACTIO</FIEL1>
+    <OCLSS>ZAMP</OCLSS>
+   </TOBJ>
+   <TOBJT>
+    <LANGU>E</LANGU>
+    <OBJECT>ZAMP_AUTH</OBJECT>
+    <TTEXT>amp authorization</TTEXT>
+   </TOBJT>
+   <TOBJVORFLG>
+    <OBJCT>ZAMP_AUTH</OBJCT>
+   </TOBJVORFLG>
+  </asx:values>
+ </asx:abap>
+</abapGit>
