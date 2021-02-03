@@ -64,12 +64,12 @@ CLASS zcl_amp_c_batch_input IMPLEMENTATION.
 
     ENDLOOP.
 
-    LOOP AT batch_inputs ASSIGNING <batch>.
+    LOOP AT batch_inputs_condensed ASSIGNING FIELD-SYMBOL(<batch_con>).
 
-      metric_key = |{ <batch>-groupid }_{ <batch>-progid }|.
+      metric_key = |{ <batch_con>-groupid }_{ <batch_con>-progid }|.
 
-      metric = VALUE zif_amp_collector=>metric( metric_key = metric_key
-                                                metric_value = <batch>-count ).
+      metric = VALUE zif_amp_collector=>metric( metric_key   = metric_key
+                                                metric_value = <batch_con>-count ).
 
       COLLECT metric INTO metrics_current_run.
 
