@@ -35,19 +35,27 @@ CLASS zcl_amp_c_batch_input IMPLEMENTATION.
     metrics_current_run = zcl_amp_collector_utils=>initialize_metrics( metrics_last_run = metrics_last_run ).
 
     SELECT
-    COUNT(*) AS count,
-    groupid AS groupid,
-    progid AS progid,
-    qstate AS state
-    FROM apqi
-    WHERE ( datatyp = 'BDC' OR datatyp = 'BDCE' OR datatyp = 'RODC' )
-    GROUP BY groupid, progid, qstate
-    INTO TABLE @batch_inputs.
+      COUNT(*) AS count,
+      groupid AS groupid,
+      progid AS progid,
+      qstate AS state
+      FROM apqi
+      WHERE ( datatyp = 'BDC' OR datatyp = 'BDCE' OR datatyp = 'RODC' )
+      GROUP BY groupid, progid, qstate
+      INTO TABLE @batch_inputs.
 
     LOOP AT batch_inputs ASSIGNING FIELD-SYMBOL(<batch>).
 
-      DATA(metric) = VALUE zif_amp_collector=>metric( metric_key = |{ <batch>-groupid }_{ <batch>-progid }_{ me->map_batch_state( state = <batch>-state ) }|
+      DATA(metric_key) = |{ <batch>-groupid }_{ <batch>-progid }_{ me->map_batch_state( state = <batch>-state ) }|.
+      DATA(metric) = VALUE zif_amp_collector=>metric( metric_key = metric_key
                                                       metric_value = <batch>-count ).
+
+      COLLECT metric INTO metrics_current_run.
+
+      metric_key = |{ <batch>-groupid }_{ <batch>-progid }|.
+      metric = VALUE zif_amp_collector=>metric( metric_key = metric_key
+                                                metric_value = <batch>-count ).
+
       COLLECT metric INTO metrics_current_run.
 
     ENDLOOP.
@@ -65,3 +73,4 @@ CLASS zcl_amp_c_batch_input IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.
+
