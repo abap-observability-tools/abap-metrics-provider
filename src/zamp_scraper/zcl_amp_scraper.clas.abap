@@ -18,26 +18,37 @@ CLASS zcl_amp_scraper IMPLEMENTATION.
     DATA url_parameteres    TYPE tihttpnvp.
     DATA content_type       TYPE string.
 
-    "just to check the whole list of parameters in the debugger
-    server->request->get_form_fields( CHANGING fields  = url_parameteres ).
+    IF NEW zcl_amp_auth_checker( )->is_scraping_allowed( ) = abap_true.
 
-    DATA(scenario) = server->request->get_form_field( name = 'scenario' ).
+      "just to check the whole list of parameters in the debugger
+      server->request->get_form_fields( CHANGING fields  = url_parameteres ).
 
-    SELECT *
-      FROM zamp_store
-      INTO TABLE @metric_store
-      WHERE metric_scenario = @scenario.
+      DATA(scenario) = server->request->get_form_field( name = 'scenario' ).
 
-    DATA(converter) = NEW zcl_amp_customizing_base( scenario = CONV #( scenario ) )->get_metric_converter( ).
+      SELECT *
+        FROM zamp_store
+        INTO TABLE @metric_store
+        WHERE metric_scenario = @scenario.
+
+      DATA(converter) = NEW zcl_amp_customizing_base( scenario = CONV #( scenario ) )->get_metric_converter( ).
 
 
-    DATA(cdata) = converter->convert( EXPORTING
-                                        metric_store = metric_store
-                                      IMPORTING
-                                        content_type = content_type ).
+      DATA(cdata) = converter->convert( EXPORTING
+                                          metric_store = metric_store
+                                        IMPORTING
+                                          content_type = content_type ).
 
-    server->response->set_cdata( cdata ).
-    server->response->set_content_type( content_type ).
+      server->response->set_cdata( cdata ).
+      server->response->set_content_type( content_type ).
+      server->response->set_status( code   = '200'
+                              reason = 'metrics provided' ).
+
+    ELSE.
+      server->response->set_cdata( |no authority| ).
+      server->response->set_status( code   = '401'
+                                    reason = 'no authority' ).
+
+    ENDIF.
 
   ENDMETHOD.
 
