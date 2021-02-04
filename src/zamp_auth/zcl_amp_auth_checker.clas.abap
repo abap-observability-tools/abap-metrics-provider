@@ -34,7 +34,7 @@ CLASS zcl_amp_auth_checker IMPLEMENTATION.
   METHOD is_scraping_allowed.
 
     AUTHORITY-CHECK OBJECT 'ZAMP_AUTH'
-      ID 'ZAMP_ACTIO' FIELD 'PROVIDER'.
+      ID 'ZAMP_ACTIO' FIELD 'SCRAPER'.
     IF sy-subrc = 0.
       is_allowed = abap_true.
     ELSE.
@@ -46,7 +46,7 @@ CLASS zcl_amp_auth_checker IMPLEMENTATION.
   METHOD is_providing_allowed.
 
     AUTHORITY-CHECK OBJECT 'ZAMP_AUTH'
-      ID 'ZAMP_ACTIO' FIELD 'SCRAPER'.
+      ID 'ZAMP_ACTIO' FIELD 'PROVIDER'.
     IF sy-subrc = 0.
       is_allowed = abap_true.
     ELSE.
