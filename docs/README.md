@@ -1,3 +1,21 @@
+- [framework](#framework)
+  - [customizing](#customizing)
+  - [authorization checks](#authorization-checks)
+  - [compontent provider](#compontent-provider)
+    - [modul collector](#modul-collector)
+  - [compontent scrapper](#compontent-scrapper)
+    - [modul converter](#modul-converter)
+- [metrics](#metrics)
+  - [runtimte errors (ST22)](#runtimte-errors-st22)
+  - [jobs (SM37)](#jobs-sm37)
+  - [workloads (ST03N)](#workloads-st03n)
+  - [SQL monitor data (SQLM)](#sql-monitor-data-sqlm)
+  - [transactional RFCs (SM58)](#transactional-rfcs-sm58)
+  - [queued RFCs (SMQ1/SMQ2)](#queued-rfcs-smq1smq2)
+  - [transport states (STMS)](#transport-states-stms)
+  - [Business Application Log (BAL)](#business-application-log-bal)
+  - [Batch Input Jobs (SM35)](#batch-input-jobs-sm35)
+  - [Batch Input Jobs (SM50/SM51)](#batch-input-jobs-sm50sm51)
 # framework
 
 ## customizing
@@ -7,6 +25,14 @@ transaction ZAMP_CONFIG
 ![customizing example provider](./img/customizing_example_scenario.png)
 
 ![ustomizing example provider](./img/customizing_example_provider.png)
+
+## authorization checks
+
+All checks are in class [zcl_amp_auth_checker](../src/zamp_collector/zcl_amp_auth_checker.clas.abap).
+
+Checks are implemented for the provider, scraper and the deleting programm of the metrics store.
+
+The authorization object `ZAMP_AUTH` is used in each case, with the field values `PROVIDER`, `SCRAPER`, `DELETER`.
 
 ## compontent provider
 
