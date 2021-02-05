@@ -1,6 +1,5 @@
 # abap-metrics-provider
 
-[![Known Vulnerabilities](https://snyk.io/test/github/abap-observability-tools/abap-metrics-provider/badge.svg?targetFile=package.json)](https://snyk.io/test/github/abap-observability-tools/abap-metrics-provider?targetFile=package.json)
 ![Run abaplint](https://github.com/abap-observability-tools/abap-metrics-provider/workflows/Run%20abaplint/badge.svg)
 
 # compatibility
