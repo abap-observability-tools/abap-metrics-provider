@@ -23,11 +23,6 @@
       "exclude": [],
       "reason": ""
     },
-    "abapdoc": {
-      "exclude": [],
-      "reason": "",
-      "checkLocal": false
-    },
     "allowed_object_naming": {
       "exclude": [],
       "reason": ""
@@ -58,18 +53,9 @@
       "exclude": [],
       "reason": ""
     },
-    "chain_mainly_declarations": {
-      "exclude": [],
-      "reason": ""
-    },
     "check_abstract": {
       "exclude": [],
       "reason": ""
-    },
-    "check_comments": {
-      "exclude": [],
-      "reason": "",
-      "allowEndOfLine": false
     },
     "check_ddic": {
       "exclude": [],
@@ -199,11 +185,6 @@
       "exclude": [],
       "reason": ""
     },
-    "in_statement_indentation": {
-      "exclude": [],
-      "reason": "",
-      "ignoreExceptions": true
-    },
     "indentation": {
       "exclude": [],
       "reason": "",
@@ -231,11 +212,6 @@
       "ignoreGlobalClassDefinition": false,
       "ignoreGlobalInterface": false,
       "ignoreFunctionModuleName": false
-    },
-    "line_length": {
-      "exclude": [],
-      "reason": "",
-      "length": 120
     },
     "line_only_punc": {
       "exclude": [],
@@ -373,11 +349,6 @@
     "release_idoc": {
       "exclude": [],
       "reason": ""
-    },
-    "remove_descriptions": {
-      "exclude": [],
-      "reason": "",
-      "ignoreExceptions": false
     },
     "rfc_error_handling": {
       "exclude": [],
