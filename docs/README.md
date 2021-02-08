@@ -49,6 +49,8 @@ This classes can be assigned to a scenario.
 The converter get the scenario from the URL parameter `scenario`.
 The URL should look like `http://vhcalnplci:8000/amp/metrics?sap-client=001&scenario=test`
 
+All predefined converter are listed in this [UML](https://abaplint.app/rest/stats/abap-observability-tools/abap-metrics-provider/oo/ZIF_AMP_CONVERTER/uml).
+
 # metrics
 
 The collectors classes are marked with a C e.g. zcl_amp_c_runtime_errors.
