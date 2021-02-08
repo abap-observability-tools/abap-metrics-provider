@@ -53,6 +53,8 @@ The URL should look like `http://vhcalnplci:8000/amp/metrics?sap-client=001&scen
 
 The collectors classes are marked with a C e.g. zcl_amp_c_runtime_errors.
 
+All collectors are in this [UML](https://abaplint.app/rest/stats/abap-observability-tools/abap-metrics-provider/oo/ZIF_AMP_COLLECTOR/uml)
+
 ## runtimte errors (ST22)
 
 [zcl_amp_c_runtime_errors](../src/zamp_collector/zcl_amp_c_runtime_errors.clas.abap)
