@@ -32,10 +32,9 @@ CLASS ltcl_test IMPLEMENTATION.
     CONDENSE act_converted_metrics NO-GAPS.
     CONDENSE exp_converted_metrics NO-GAPS.
 
-    cl_aunit_assert=>assert_equals( EXPORTING
-                                        exp = exp_converted_metrics
-                                        act = act_converted_metrics
-                                        msg  = |wrong json with only allowed characters| ).
+    cl_aunit_assert=>assert_equals( exp = exp_converted_metrics
+                                    act = act_converted_metrics
+                                    msg  = |wrong json with only allowed characters| ).
 
   ENDMETHOD.
 
@@ -64,10 +63,9 @@ CLASS ltcl_test IMPLEMENTATION.
     CONDENSE act_converted_metrics NO-GAPS.
     CONDENSE exp_converted_metrics NO-GAPS.
 
-    cl_aunit_assert=>assert_equals( EXPORTING
-                                        exp = exp_converted_metrics
-                                        act = act_converted_metrics
-                                        msg  = |wrong json with special metrics| ).
+    cl_aunit_assert=>assert_equals( exp = exp_converted_metrics
+                                    act = act_converted_metrics
+                                    msg  = |wrong json with special metrics| ).
 
   ENDMETHOD.
 
@@ -84,10 +82,9 @@ CLASS ltcl_test IMPLEMENTATION.
                                       IMPORTING
                                         content_type      = DATA(act_content_type) ).
 
-    cl_aunit_assert=>assert_equals( EXPORTING
-                                        exp = exp_content_type
-                                        act = act_content_type
-                                        msg = |wrong content type| ).
+    cl_aunit_assert=>assert_equals( exp = exp_content_type
+                                    act = act_content_type
+                                    msg = |wrong content type| ).
 
   ENDMETHOD.
 
@@ -100,10 +97,9 @@ CLASS ltcl_test IMPLEMENTATION.
     CONDENSE act_converted_metrics NO-GAPS.
     CONDENSE exp_converted_metrics NO-GAPS.
 
-    cl_aunit_assert=>assert_equals( EXPORTING
-                                        exp = exp_converted_metrics
-                                        act = act_converted_metrics
-                                        msg  = |wrong empty json| ).
+    cl_aunit_assert=>assert_equals( exp = exp_converted_metrics
+                                    act = act_converted_metrics
+                                    msg  = |wrong empty json| ).
 
   ENDMETHOD.
 

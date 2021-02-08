@@ -36,19 +36,6 @@
       "exclude": [],
       "reason": ""
     },
-    "avoid_use": {
-      "exclude": [],
-      "reason": "",
-      "define": true,
-      "endselect": true,
-      "execSQL": true,
-      "kernelCall": true,
-      "communication": true,
-      "statics": true,
-      "systemCall": true,
-      "defaultKey": true,
-      "break": true
-    },
     "begin_end_names": {
       "exclude": [],
       "reason": ""
@@ -262,10 +249,6 @@
       "returning": "\\w",
       "changing": "\\w",
       "exporting": "\\w"
-    },
-    "mix_returning": {
-      "exclude": [],
-      "reason": ""
     },
     "msag_consistency": {
       "exclude": [],
