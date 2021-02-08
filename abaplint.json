@@ -23,11 +23,6 @@
       "exclude": [],
       "reason": ""
     },
-    "abapdoc": {
-      "exclude": [],
-      "reason": "",
-      "checkLocal": false
-    },
     "allowed_object_naming": {
       "exclude": [],
       "reason": ""
@@ -41,35 +36,13 @@
       "exclude": [],
       "reason": ""
     },
-    "avoid_use": {
-      "exclude": [],
-      "reason": "",
-      "define": true,
-      "endselect": true,
-      "execSQL": true,
-      "kernelCall": true,
-      "communication": true,
-      "statics": true,
-      "systemCall": true,
-      "defaultKey": true,
-      "break": true
-    },
     "begin_end_names": {
-      "exclude": [],
-      "reason": ""
-    },
-    "chain_mainly_declarations": {
       "exclude": [],
       "reason": ""
     },
     "check_abstract": {
       "exclude": [],
       "reason": ""
-    },
-    "check_comments": {
-      "exclude": [],
-      "reason": "",
-      "allowEndOfLine": false
     },
     "check_ddic": {
       "exclude": [],
@@ -199,11 +172,6 @@
       "exclude": [],
       "reason": ""
     },
-    "in_statement_indentation": {
-      "exclude": [],
-      "reason": "",
-      "ignoreExceptions": true
-    },
     "indentation": {
       "exclude": [],
       "reason": "",
@@ -231,11 +199,6 @@
       "ignoreGlobalClassDefinition": false,
       "ignoreGlobalInterface": false,
       "ignoreFunctionModuleName": false
-    },
-    "line_length": {
-      "exclude": [],
-      "reason": "",
-      "length": 120
     },
     "line_only_punc": {
       "exclude": [],
@@ -286,10 +249,6 @@
       "returning": "\\w",
       "changing": "\\w",
       "exporting": "\\w"
-    },
-    "mix_returning": {
-      "exclude": [],
-      "reason": ""
     },
     "msag_consistency": {
       "exclude": [],
@@ -373,11 +332,6 @@
     "release_idoc": {
       "exclude": [],
       "reason": ""
-    },
-    "remove_descriptions": {
-      "exclude": [],
-      "reason": "",
-      "ignoreExceptions": false
     },
     "rfc_error_handling": {
       "exclude": [],

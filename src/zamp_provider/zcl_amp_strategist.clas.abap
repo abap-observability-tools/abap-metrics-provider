@@ -89,7 +89,7 @@ CLASS zcl_amp_strategist IMPLEMENTATION.
 
     ENDLOOP.
 
-    MODIFY zamp_store FROM TABLE metrics_total.
+    MODIFY zamp_store FROM TABLE @metrics_total.
 
   ENDMETHOD.
 
