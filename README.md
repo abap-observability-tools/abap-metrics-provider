@@ -25,9 +25,12 @@
 # documentation
 
 [documentation folder](docs/)
+
 # local tests
 
 [local test folder](local-tests/)
+
+Video [Quick local setup: abap-metrics-provider](https://www.youtube.com/watch?v=XV5brOMpzJA)
 
 # based on
 https://github.com/pacroy/abap-prometheus
