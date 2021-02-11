@@ -1,8 +1,3 @@
-*&---------------------------------------------------------------------*
-*& Report zamp_clear_zamp_store
-*&---------------------------------------------------------------------*
-*&
-*&---------------------------------------------------------------------*
 REPORT zamp_clear_zamp_store.
 
 TABLES zamp_store.
@@ -15,9 +10,9 @@ START-OF-SELECTION.
 
   IF NEW zcl_amp_auth_checker( )->is_deleting_allowed( ) = abap_true.
     DELETE FROM zamp_store
-    WHERE metric_scenario IN scenario
-    AND metric_group IN group
-    AND metric_key IN key.
+    WHERE metric_scenario IN @scenario
+    AND metric_group IN @group
+    AND metric_key IN @key.
     IF sy-subrc = 0.
       WRITE |{ sy-dbcnt } entries deleted|.
     ELSE.
