@@ -18,6 +18,12 @@
     </item>
     <item>
      <ID>S</ID>
+     <KEY>DATE</KEY>
+     <ENTRY>delete before date</ENTRY>
+     <LENGTH>26</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
      <KEY>GROUP</KEY>
      <ENTRY>.</ENTRY>
      <LENGTH>9</LENGTH>
@@ -36,6 +42,12 @@
      <ENTRY>.</ENTRY>
      <LENGTH>9</LENGTH>
      <SPLIT>D</SPLIT>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>TIME</KEY>
+     <ENTRY>delete before time</ENTRY>
+     <LENGTH>26</LENGTH>
     </item>
    </TPOOL>
   </asx:values>
