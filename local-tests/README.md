@@ -19,6 +19,8 @@ curl -G 'http://localhost:8086/query' --data-urlencode 'q=select * from influxdb
 
 curl -G 'http://localhost:8086/query' --data-urlencode 'q=select shortdumps_number_of_shortdumps from influxdb..http where time > now() - 1m' | jq .
 
+curl -XPOST 'http://localhost:8086/query' --data-urlencode "db=influxdb" --data-urlencode "q=drop series from http"
+
 ## telegraf utils
 
 telegraf --config telegraf.conf --test
