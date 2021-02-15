@@ -1,0 +1,31 @@
+name: "update changelog"
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Update changelog
+      run: |
+        npm install github-release-notes
+        export GREN_GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+        npm run overrideChangelog
+
+        
+    - name: push changelog.md
+      run: |
+        echo ${GITHUB_REF#refs/tags/}
+        git fetch
+        git status
+        git diff CHANGELOG.md
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        git switch main
+        git add CHANGELOG.md
+        git commit -m "CHANGELOG.md updated"
+        git push
+      working-directory: ./
