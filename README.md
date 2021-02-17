@@ -30,7 +30,7 @@
 
 [local test folder](local-tests/)
 
-Video [Quick local setup: abap-metrics-provider](https://www.youtube.com/watch?v=XV5brOMpzJA)
+[Video Playlist](https://www.youtube.com/playlist?list=PLeIKOaE6_NMppXUHHSHMgllNAC9rj5ivU)
 
 # based on
 https://github.com/pacroy/abap-prometheus
