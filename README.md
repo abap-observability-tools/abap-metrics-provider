@@ -1,7 +1,6 @@
 # abap-metrics-provider
 
 ![Run abaplint](https://github.com/abap-observability-tools/abap-metrics-provider/workflows/Run%20abaplint/badge.svg)
-
 [![codecov](https://codecov.io/gh/abap-observability-tools/abap-metrics-provider/branch/main/graph/badge.svg?token=UEZXMHG6MM)](https://codecov.io/gh/abap-observability-tools/abap-metrics-provider)
 
 # compatibility
