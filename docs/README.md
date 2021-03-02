@@ -15,7 +15,7 @@
   - [transport states (STMS)](#transport-states-stms)
   - [Business Application Log (BAL)](#business-application-log-bal)
   - [Batch Input Jobs (SM35)](#batch-input-jobs-sm35)
-  - [Batch Input Jobs (SM50/SM51)](#batch-input-jobs-sm50sm51)
+  - [work processes (SM50/SM51)](#work-processes-sm50sm51)
 # framework
 
 ## customizing
@@ -103,7 +103,7 @@ Selects the transport states for the current Day and create a metric for command
 
 [zcl_amp_c_bal_logs](../src/zamp_collector/zcl_amp_c_bal_logs.clas.abap)
 
-Counts all logs for the current day and groups by Object and Subobject. 
+Counts all logs for the current day and groups by Object and Subobject.
 Also provides the number of different message types per Bal Object.
 
 ## Batch Input Jobs (SM35)
@@ -112,7 +112,7 @@ Also provides the number of different message types per Bal Object.
 
 Collect count of batch sessions for the current day.
 
-## Batch Input Jobs (SM50/SM51)
+## work processes (SM50/SM51)
 
 [zcl_amp_c_work_processes](../src/zamp_collector/zcl_amp_c_work_processes.clas.abap)
 
