@@ -10,8 +10,8 @@ CLASS zcl_amp_conv_http_json DEFINITION
   PRIVATE SECTION.
 
     METHODS escape_json
-      IMPORTING i_val        TYPE string
-      RETURNING VALUE(r_val) TYPE string.
+      IMPORTING val           TYPE string
+      RETURNING VALUE(result) TYPE string.
 ENDCLASS.
 
 
@@ -53,6 +53,6 @@ CLASS zcl_amp_conv_http_json IMPLEMENTATION.
 
 
   METHOD escape_json.
-    r_val = escape( val = i_val format = cl_abap_format=>e_json_string ).
+    result = escape( val = val format = cl_abap_format=>e_json_string ).
   ENDMETHOD.
 ENDCLASS.
