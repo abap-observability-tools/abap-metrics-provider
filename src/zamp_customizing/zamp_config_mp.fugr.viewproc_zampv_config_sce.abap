@@ -1,6 +1,6 @@
 *---------------------------------------------------------------------*
 *    program for:   VIEWPROC_ZAMPV_CONFIG_SCE
-*   generation date: 09.01.2021 at 16:42:28
+*   generation date: 02.03.2021 at 21:38:54
 *   view maintenance generator version: #001407#
 *---------------------------------------------------------------------*
 FUNCTION VIEWPROC_ZAMPV_CONFIG_SCE     .

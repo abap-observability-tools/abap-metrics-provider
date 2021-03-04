@@ -1,4 +1,4 @@
-* regenerated at 09.01.2021 16:42:28
+* regenerated at 02.03.2021 21:36:32
 FUNCTION-POOL ZAMP_CONFIG_MP             MESSAGE-ID SV.
 
 * INCLUDE LZAMP_CONFIG_MPD...                " Local class definition

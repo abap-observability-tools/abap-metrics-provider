@@ -1,6 +1,6 @@
 *---------------------------------------------------------------------*
 *    view related PAI modules
-*   generation date: 09.01.2021 at 16:42:55
+*   generation date: 02.03.2021 at 21:38:55
 *   view maintenance generator version: #001407#
 *---------------------------------------------------------------------*
 *...processing: ZAMPV_CONFIG_PRO................................*
