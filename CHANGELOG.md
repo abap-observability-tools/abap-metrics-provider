@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.10.2 🌈 (04/03/2021)
+## Changes
+
+## 🧰 Maintenance
+
+- Use ABAP escape function to escape JSON @ThoralfHaensel (#183)
+
+## 🧺 Miscellaneous
+
+- Update Changelog @github-actions (#184)
+---
+
 ## v1.10.1 🌈 (03/03/2021)
 ## Changes
 
