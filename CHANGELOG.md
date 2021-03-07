@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.11.0 🌈 (07/03/2021)
+## Changes
+## 🧰 Maintenance
+
+- Switch metric value to int4 @Goala (#188) ⚠️ check comments of the pull request
+
+## 🧺 Miscellaneous
+
+- Bump @abaplint/cli from 2.69.7 to 2.69.8 @dependabot (#186)
+- Update Changelog @github-actions (#185)
+
+---
+
 ## v1.10.2 🌈 (04/03/2021)
 ## Changes
 
