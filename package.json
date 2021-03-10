@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "abap-metrics-provider",
   "scripts": {
-    "test": "abaplint",
     "overrideChangelog": "gren changelog --override"
   },
   "repository": {
@@ -22,7 +21,6 @@
   },
   "homepage": "https://github.com/abap-observability-tools/abap-metrics-provider#readme",
   "devDependencies": {
-    "@abaplint/cli": "^2.69.8",
     "github-release-notes": "^0.17.3"
   }
 }
