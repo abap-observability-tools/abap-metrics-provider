@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/abap-observability-tools/abap-metrics-provider#readme",
   "devDependencies": {
-    "@abaplint/cli": "^2.69.8",
+    "@abaplint/cli": "^2.70.1",
     "github-release-notes": "^0.17.3"
   }
 }
