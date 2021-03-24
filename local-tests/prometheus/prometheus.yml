@@ -6,3 +6,14 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
+
+  - job_name: 'amp'
+    metrics_path: '/amp/metrics'
+    params:
+      sap-client: [001]
+      scenario: [example-prom]
+    basic_auth:
+      username: 'DEVELOPER'
+      password: 'Down1oad'
+    static_configs:
+      - targets: ['vhcalnplci:8000']
