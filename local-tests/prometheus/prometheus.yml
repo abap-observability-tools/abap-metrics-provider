@@ -11,9 +11,9 @@ scrape_configs:
     metrics_path: '/amp/metrics'
     params:
       sap-client: [001]
-      scenario: [example-prom]
+      scenario: [example_prom]
     basic_auth:
-      username: 'DEVELOPER'
-      password: 'Down1oad'
+      username: '<username>'
+      password: '<password>'
     static_configs:
-      - targets: ['vhcalnplci:8000']
+      - targets: ['<your_ip>:8000']
