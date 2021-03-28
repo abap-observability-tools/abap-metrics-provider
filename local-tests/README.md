@@ -36,6 +36,10 @@ export username=<<username>>
 export password=<<password>>
 ```
 
+## prometheus set up
+
+Replace placeholder marked with <...> inside [prometheus.yml](./prometheus/prometheus.yml).
+
 ## based on 
 https://github.com/bcremer/docker-telegraf-influx-grafana-stack
 
